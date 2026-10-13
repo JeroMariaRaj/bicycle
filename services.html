@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Catalog | VELOMETRIX Bicycle Fitting Studio</title>
+  <meta name="description" content="Explore our catalog of bicycle fitting and cycling biomechanics services. 3D motion capture, saddle pressure mapping, TT aero optimization, and pedal analysis.">
+  <meta name="keywords" content="bike fit catalog, bicycle fitting services, saddle pressure mapping, cleat setup, aerodynamic fitting">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services Catalog | VELOMETRIX Bicycle Fitting Studio">
+  <meta property="og:description" content="Filter and explore precision bike fitting and cycling biomechanics services.">
+  <meta property="og:image" content="assets/images/services/service-3d-motion.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A0D136',
+              bgLight: '#F7F9FC',
+              bgDark: '#101820',
+              cardDark: '#16222F',
+              muted: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-brand-bgLight dark:bg-brand-bgDark text-slate-800 dark:text-slate-100 transition-colors duration-200">
+
+  <!-- Site Header -->
+  <header class="site-header sticky top-0 z-40 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl sm:text-2xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[10px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center lg:gap-3.5 xl:gap-7 text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-700 dark:text-slate-200">
+          <div class="relative group py-2">
+            <button class="flex items-center gap-1 hover:text-lime-600 dark:hover:text-brand-accent transition-colors">
+              Home <i class="bi bi-chevron-down text-xs group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute left-0 top-full pt-2 w-64 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+              <div class="dropdown-panel bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-2 shadow-xl dark:shadow-2xl">
+                <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+                  <i class="bi bi-speedometer2 text-lime-600 dark:text-brand-accent mt-0.5"></i>
+                  <div>
+                    <div class="font-bold text-sm">Home 1 – Performance</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-normal">Precision fitting &amp; metrics</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+                  <i class="bi bi-activity text-sky-500 dark:text-sky-400 mt-0.5"></i>
+                  <div>
+                    <div class="font-bold text-sm">Home 2 – Biomechanics</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-normal">Science, kinetics &amp; telemetry</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">About Us</a>
+          <a href="services.html" class="active text-lime-700 dark:text-brand-accent font-bold hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Services</a>
+          <a href="pricing.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Pricing</a>
+          <a href="blog.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Insights</a>
+          <a href="contact.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Contact</a>
+          <a href="dashboard/index.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Dashboard</a>
+        </nav>
+
+        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <button class="theme-toggle-btn w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm text-xs sm:text-sm" aria-label="Toggle theme">
+            <i class="bi bi-sun-fill text-amber-500"></i>
+          </button>
+          <button class="rtl-toggle-btn px-2 sm:px-2.5 h-8 sm:h-9 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm" aria-label="Toggle layout direction">
+            <span class="rtl-status-text">RTL</span>
+          </button>
+          <a href="login.html" class="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-lime-500 dark:hover:border-brand-accent hover:text-slate-900 dark:hover:text-white transition-all shadow-sm" title="Login">
+            <i class="bi bi-box-arrow-in-right text-lime-600 dark:text-brand-accent"></i>
+            <span>Login</span>
+          </a>
+          <a href="login.html" class="hidden lg:inline-flex btn-accent px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold shadow-md items-center gap-2 whitespace-nowrap">
+            <span>Book Fit</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <button class="mobile-menu-btn lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:text-slate-900 dark:hover:text-white shrink-0" aria-label="Open menu">
+            <i class="bi bi-list text-xl sm:text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+  <div class="mobile-menu-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden"></div>
+  <aside class="mobile-menu-drawer fixed top-0 right-0 bottom-0 w-80 max-w-full bg-slate-900 border-l border-slate-800 p-6 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[9px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+        <button class="mobile-menu-close w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="Close menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-1.5 py-6 text-sm font-semibold text-slate-200">
+        <!-- Home Dropdown -->
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-toggle p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between w-full text-left transition-colors" aria-expanded="false">
+            <span class="font-bold">Home</span>
+            <i class="bi bi-chevron-down text-xs transition-transform duration-200"></i>
+          </button>
+          <div class="mobile-dropdown-menu hidden flex-col gap-1 pl-3 pt-1 pb-1">
+            <a href="index.html" class="p-2 rounded-xl hover:bg-slate-800/60 flex items-center justify-between text-xs transition-colors">
+              <span class="flex items-center gap-2">
+                <i class="bi bi-speedometer2 text-lime-600 dark:text-brand-accent"></i>
+                <span>Home 1 – Performance</span>
+              </span>
+              <i class="bi bi-chevron-right text-[10px] text-slate-400"></i>
+            </a>
+            <a href="home-2.html" class="p-2 rounded-xl hover:bg-slate-800/60 flex items-center justify-between text-xs transition-colors">
+              <span class="flex items-center gap-2">
+                <i class="bi bi-activity text-sky-500 dark:text-sky-400"></i>
+                <span>Home 2 – Biomechanics</span>
+              </span>
+              <i class="bi bi-chevron-right text-[10px] text-slate-400"></i>
+            </a>
+          </div>
+        </div>
+
+        <a href="about.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>About Us</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="services.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Services</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="pricing.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Pricing</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="blog.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Insights</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="contact.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Contact</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="dashboard/index.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Dashboard</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+      <a href="login.html" class="btn-accent w-full py-3 rounded-xl font-bold text-center block text-xs uppercase tracking-wider">
+        Book Appointment
+      </a>
+      <a href="login.html" class="w-full py-2.5 rounded-xl font-semibold text-center block text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+        Login
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner -->
+    <section class="bg-brand-primary text-white py-16 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-accent/20 text-brand-accent border border-brand-accent/30 mb-3 inline-block">
+            Scientific Services
+          </span>
+          <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white mb-4">
+            Bicycle Fitting &amp; Performance Catalog
+          </h1>
+          <p class="text-base text-slate-300 leading-relaxed">
+            Filter our complete suite of 3D motion capture fittings, pressure mappings, and aerodynamic optimizations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls & Catalog Grid -->
+    <section class="py-16 lg:py-24 bg-brand-bgLight dark:bg-brand-bgDark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Filter Pills & Search Bar -->
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-12 pb-8 border-b border-slate-200 dark:border-slate-800">
+          
+          <!-- Category Pills -->
+          <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto">
+            <button class="service-filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-brand-accent text-brand-primary transition-all shadow-sm" data-category="all">
+              All Services (9)
+            </button>
+            <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-accent transition-all" data-category="bike-fitting">
+              Bike Fitting
+            </button>
+            <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-accent transition-all" data-category="biomechanics">
+              Biomechanics
+            </button>
+            <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-accent transition-all" data-category="cycling-optimization">
+              Cycling Optimization
+            </button>
+            <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-accent transition-all" data-category="performance-analysis">
+              Performance Analysis
+            </button>
+            <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-accent transition-all" data-category="consultations">
+              Consultations
+            </button>
+          </div>
+
+          <!-- Instant Search Box -->
+          <div class="relative w-full lg:w-72">
+            <i class="bi bi-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="serviceSearchInput" placeholder="Search services..." class="w-full pl-9 pr-4 py-2.5 rounded-xl text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white focus:border-brand-accent focus:outline-none shadow-sm">
+          </div>
+
+        </div>
+
+        <!-- Dynamic Grid (Hydrated by navigation.js) -->
+        <div id="services-catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer bg-slate-950 text-slate-400 text-xs py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2 text-white font-extrabold text-xl">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary border border-brand-accent flex items-center justify-center text-brand-accent">
+              <i class="bi bi-radar"></i>
+            </div>
+            VELO<span class="text-brand-accent">METRIX</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Bicycle fitting and performance laboratory. Precision biomechanics, pelvic stability, and aerodynamic position optimization.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://www.strava.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="Strava"><i class="bi bi-strava"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4">Fitting Services</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-details.html?id=3d-motion-fit" class="hover:text-brand-accent transition-colors">3D Motion Capture</a></li>
+            <li><a href="service-details.html?id=saddle-pressure-mapping" class="hover:text-brand-accent transition-colors">Saddle Pressure Mapping</a></li>
+            <li><a href="service-details.html?id=cleat-pedal-alignment" class="hover:text-brand-accent transition-colors">Cleat Alignment &amp; Shims</a></li>
+            <li><a href="service-details.html?id=aero-triathlon-fit" class="hover:text-brand-accent transition-colors">Triathlon &amp; TT Aero</a></li>
+            <li><a href="service-details.html?id=cda-aerodynamic-profiling" class="hover:text-brand-accent transition-colors">CdA Aero Profiling</a></li>
+            <li><a href="service-details.html?id=pedaling-efficiency-analysis" class="hover:text-brand-accent transition-colors">Pedaling Efficiency</a></li>
+            <li><a href="service-details.html?id=mountain-bike-ergonomic-fit" class="hover:text-brand-accent transition-colors">Mountain Bike Ergonomics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4">Quick Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html" class="hover:text-brand-accent transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-brand-accent transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-brand-accent transition-colors">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-brand-accent transition-colors">Insights</a></li>
+            <li><a href="contact.html" class="hover:text-brand-accent transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4">Insights Bulletin</h4>
+          <p class="text-[11px] text-slate-400 mb-3">Subscribe for clinical biomechanics whitepapers and laboratory updates.</p>
+          <form class="newsletter-form space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs focus:border-brand-accent focus:outline-none">
+            <button type="submit" class="w-full py-2 rounded-xl bg-brand-accent text-brand-primary font-bold text-xs hover:bg-brand-accentHover transition-colors">
+              Subscribe Free
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8 text-center text-[11px]">
+        <p>&copy; 2026 VELOMETRIX Performance Studio. Commercial Frontend Template.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-to-top fixed bottom-5 right-5 z-40 w-10 h-10 rounded-xl bg-brand-accent text-brand-primary shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up font-bold"></i>
+  </button>
+
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

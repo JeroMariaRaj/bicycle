@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgB1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101D2C"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgB1)"/>
+  <!-- Telemetry Grid -->
+  <g stroke="#334155" stroke-width="1" stroke-opacity="0.3">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+  <!-- Biomechanics Joint Diagram (Femur, Tibia, Pedal Spindle) -->
+  <g transform="translate(100, 40)">
+    <!-- Hip Joint -->
+    <circle cx="200" cy="80" r="14" fill="#38BDF8"/>
+    <text x="200" y="60" fill="#94A3B8" font-family="system-ui" font-size="12" font-weight="600" text-anchor="middle">HIP (0°)</text>
+    <!-- Femur -->
+    <line x1="200" y1="80" x2="360" y2="220" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+    <!-- Knee Joint (Center of rotation) -->
+    <circle cx="360" cy="220" r="18" fill="#B7E64A"/>
+    <circle cx="360" cy="220" r="28" fill="none" stroke="#B7E64A" stroke-width="2" stroke-dasharray="4,4"/>
+    <!-- Angle Arc -->
+    <path d="M 330 200 A 30 30 0 0 1 350 250" fill="none" stroke="#B7E64A" stroke-width="3"/>
+    <text x="410" y="225" fill="#B7E64A" font-family="system-ui" font-size="18" font-weight="800">35° OPTIMAL FLEXION</text>
+    <!-- Tibia -->
+    <line x1="360" y1="220" x2="270" y2="380" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+    <!-- Ankle / Foot -->
+    <circle cx="270" cy="380" r="12" fill="#38BDF8"/>
+    <!-- Pedal Crank & Spindle -->
+    <circle cx="270" cy="380" r="30" fill="none" stroke="#B7E64A" stroke-width="3"/>
+    <line x1="270" y1="380" x2="220" y2="380" stroke="#B7E64A" stroke-width="6" stroke-linecap="round"/>
+    <!-- Alignment Plumb Line -->
+    <line x1="360" y1="50" x2="360" y2="420" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="6,6"/>
+    <rect x="370" y="320" width="160" height="28" rx="6" fill="#101D2C" stroke="#EF4444"/>
+    <text x="450" y="338" fill="#F87171" font-family="system-ui" font-size="11" font-weight="700" text-anchor="middle">KOPS PLUMB LINE</text>
+  </g>
+  <!-- Card Header Badge -->
+  <rect x="40" y="40" width="170" height="32" rx="16" fill="#101D2C" stroke="#B7E64A" stroke-width="1.5"/>
+  <text x="125" y="61" fill="#B7E64A" font-family="system-ui" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">BIOMECHANICS RESEARCH</text>
+</svg>

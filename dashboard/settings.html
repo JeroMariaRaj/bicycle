@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rider Account Settings | VELOMETRIX</title>
+  <meta name="description" content="Configure application preferences, measurement units, notification rules, and demo data state for VELOMETRIX.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A3D438',
+              lightBg: '#F7F9FC',
+              darkBg: '#101820',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              borderDark: '#243242'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Bootstrap Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="dashboard-body bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex min-h-screen selection:bg-brand-accent selection:text-brand-primary transition-colors duration-200">
+
+  <!-- Sidebar Overlay for Mobile -->
+  <div id="dashboardSidebarBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- Dashboard Sidebar Navigation -->
+  <aside id="dashboardSidebar" class="fixed top-0 bottom-0 left-0 w-64 bg-white dark:bg-brand-primary border-r border-slate-200 dark:border-slate-800 z-50 flex flex-col justify-between transition-transform duration-300 -translate-x-full closed lg:translate-x-0">
+    <div>
+      <!-- Brand Header -->
+      <div class="h-20 flex items-center justify-between px-5 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+        <a href="../index.html" class="dashboard-brand flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[9px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+        <button id="closeDashboardSidebarBtn" class="lg:hidden text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white p-1 ml-2" aria-label="Close sidebar">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="p-4 space-y-1.5 text-xs font-semibold">
+        <a href="index.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-speedometer2 text-base"></i>
+          <span>Overview</span>
+        </a>
+        <a href="book-appointment.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-plus text-base"></i>
+          <span>Book Appointment</span>
+        </a>
+        <a href="appointments.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-check text-base"></i>
+          <span>My Appointments</span>
+        </a>
+        <a href="fit-history.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-clock-history text-base"></i>
+          <span>Fit History & Comparison</span>
+        </a>
+        <a href="analytics.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-graph-up text-base"></i>
+          <span>Performance Analytics</span>
+        </a>
+        <a href="reports.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-file-earmark-medical text-base"></i>
+          <span>Measurement Reports</span>
+        </a>
+        <a href="bikes.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-bicycle text-base"></i>
+          <span>My Bikes</span>
+        </a>
+        <a href="profile.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-person-lines-fill text-base"></i>
+          <span>Rider Profile</span>
+        </a>
+        <a href="settings.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl bg-brand-accent text-brand-primary font-bold shadow-md shadow-brand-accent/10">
+          <i class="bi bi-gear text-base"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
+        <a href="../index.html" class="hover:text-brand-accent flex items-center gap-1">
+          <i class="bi bi-box-arrow-left"></i> Public Site
+        </a>
+        <a href="../login.html" class="text-red-400 hover:text-red-300 flex items-center gap-1 font-semibold">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-grow lg:pl-64 flex flex-col min-w-0">
+
+    <!-- Top Bar -->
+    <header class="dashboard-top-navbar sticky top-0 z-30 h-20 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 flex items-center justify-between transition-colors duration-200">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <button id="mobileDashboardSidebarToggle" class="lg:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" aria-label="Open sidebar">
+          <i class="bi bi-list text-2xl"></i>
+        </button>
+
+        <!-- Brand Logo on Mobile / Tablet (Visible when sidebar is off-canvas) -->
+        <a href="../index.html" class="dashboard-brand flex lg:hidden items-center gap-2 group shrink-0">
+          <div class="brand-icon-box w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-base shadow-sm group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-sm sm:text-base font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-0.5 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7px] sm:text-[8px] tracking-normal uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+
+        <!-- Desktop Page Heading (Hidden on mobile where brand logo shows, visible on desktop lg:) -->
+        <div class="hidden lg:block">
+          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans']">Account & Preferences</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Measurement units, notification rules, and database resets</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <button id="themeToggleBtn" class="theme-toggle-btn w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm text-sm" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-slate-700"></i>
+        </button>
+        <button id="rtlToggleBtn" class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl text-xs font-mono border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-brand-accent hover:text-slate-900 dark:hover:text-white transition-colors" title="Toggle RTL">
+          RTL
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="p-4 sm:p-6 lg:p-8 space-y-8 flex-grow max-w-4xl">
+
+      <!-- Section 1: Measurement Unit Preferences -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-brand-primary border border-slate-800 shadow-xl space-y-6">
+        <div>
+          <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+            <i class="bi bi-rulers text-brand-accent"></i> Units & Geometry System
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">Configure default display formats for cockpit reach, saddle heights, and body weight.</p>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <div>
+              <div class="text-xs font-bold text-white">Coordinate System</div>
+              <div class="text-[11px] text-slate-400">Millimetric ISO standard (Recommended for precision bike fitting)</div>
+            </div>
+            <select class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white">
+              <option value="metric" selected>Metric (mm / cm)</option>
+              <option value="imperial">Imperial (Inches)</option>
+            </select>
+          </div>
+
+          <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <div>
+              <div class="text-xs font-bold text-white">Power & Cadence Scaling</div>
+              <div class="text-[11px] text-slate-400">Standard watt metrics and revolutions per minute</div>
+            </div>
+            <select class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white">
+              <option value="watts" selected>Watts & RPM</option>
+              <option value="percent">Percentage of FTP (% FTP)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Notifications & Reminders -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-brand-primary border border-slate-800 shadow-xl space-y-6">
+        <div>
+          <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+            <i class="bi bi-bell text-brand-accent"></i> Communication & Fit Alerts
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">Manage notifications regarding upcoming calibrations and follow-up checks.</p>
+        </div>
+
+        <div class="space-y-3 pt-2 text-xs">
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800 cursor-pointer">
+            <div>
+              <div class="font-bold text-white">Appointment Reminders</div>
+              <div class="text-[11px] text-slate-400">Receive 48h and 24h prior notification via SMS and email.</div>
+            </div>
+            <input type="checkbox" checked class="w-4 h-4 rounded accent-brand-accent">
+          </label>
+
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800 cursor-pointer">
+            <div>
+              <div class="font-bold text-white">Follow-Up Adaptation Prompt</div>
+              <div class="text-[11px] text-slate-400">Automated check-in at 21 days post-fitting to evaluate neuromuscular adaptation.</div>
+            </div>
+            <input type="checkbox" checked class="w-4 h-4 rounded accent-brand-accent">
+          </label>
+
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800 cursor-pointer">
+            <div>
+              <div class="font-bold text-white">Scientific Research Dispatch</div>
+              <div class="text-[11px] text-slate-400">Bi-weekly digest from the VELOMETRIX biomechanics research lab.</div>
+            </div>
+            <input type="checkbox" class="w-4 h-4 rounded accent-brand-accent">
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 3: Data Management & Factory Reset -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-brand-primary border border-red-500/20 shadow-xl space-y-6">
+        <div>
+          <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+            <i class="bi bi-database text-amber-400"></i> Demo Data Control
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">
+            This frontend template stores appointments, bikes, and profile edits in your browser's <code class="text-brand-accent">localStorage</code>.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-red-950/20 border border-red-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div class="text-xs font-bold text-red-200">Reset Demo Data to Factory Defaults</div>
+            <p class="text-[11px] text-slate-400 mt-0.5">
+              Replaces any edited or created appointments and bikes with the clean master sample dataset.
+            </p>
+          </div>
+          <button 
+            type="button" 
+            id="resetDemoDataBtn"
+            class="px-4 py-2.5 rounded-xl text-xs font-bold bg-red-500/20 hover:bg-red-500/30 text-red-300 border border-red-500/40 transition-colors flex items-center gap-2 flex-shrink-0"
+          >
+            <i class="bi bi-arrow-counterclockwise"></i>
+            <span>Reset Demo Data</span>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/mock-data.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

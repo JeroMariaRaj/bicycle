@@ -1,0 +1,72 @@
+/* ==========================================================================
+   VELOMETRIX - Dedicated Dark Mode Enhancements
+   ========================================================================== */
+
+html.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Card and Surface Shades */
+html.dark .card-surface,
+[data-theme="dark"] .card-surface {
+  background-color: #16222F;
+  border-color: #243547;
+}
+
+/* Form Controls in Dark Mode */
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark select,
+html.dark textarea,
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: #101820;
+  color: #F8FAFC;
+  border-color: #2A3B4E;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder,
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #64748B;
+}
+
+html.dark select option,
+[data-theme="dark"] select option {
+  background-color: #101820;
+  color: #F8FAFC;
+}
+
+/* Modal in Dark Mode */
+html.dark .modal-content,
+[data-theme="dark"] .modal-content {
+  background-color: #131E2A;
+  border-color: #2D3E50;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Dropdown Menu in Dark Mode */
+html.dark .nav-dropdown,
+[data-theme="dark"] .nav-dropdown {
+  background-color: #131E2A;
+  border-color: #2D3E50;
+}
+
+/* Table Hover in Dark Mode */
+html.dark tr.hover-row:hover,
+[data-theme="dark"] tr.hover-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Focus States in Dark Mode */
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: #B7E64A;
+  box-shadow: 0 0 0 1px #B7E64A;
+}

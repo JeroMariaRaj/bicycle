@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELOMETRIX - Commercial Template Documentation</title>
+  <meta name="description" content="Comprehensive buyer and developer documentation for VELOMETRIX - Precision Bicycle Fitting & Cycling Performance Studio HTML Template.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A3D438',
+              lightBg: '#F7F9FC',
+              darkBg: '#101820',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              borderDark: '#243242'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Bootstrap Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+
+  <style>
+    /* Documentation specific layout */
+    .docs-nav-link.active {
+      color: #B7E64A;
+      font-weight: 700;
+      border-left: 2px solid #B7E64A;
+      padding-left: 0.75rem;
+    }
+    pre code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="bg-brand-darkBg text-slate-100 flex min-h-screen selection:bg-brand-accent selection:text-brand-primary">
+
+  <!-- Documentation Sidebar -->
+  <aside class="w-72 bg-brand-primary border-r border-slate-800 fixed top-0 bottom-0 left-0 hidden lg:flex flex-col justify-between z-30">
+    <div class="overflow-y-auto p-6 space-y-6">
+      <!-- Brand Header -->
+      <a href="../index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-brand-accent text-brand-primary flex items-center justify-center font-extrabold text-lg">
+          V
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-white block leading-none font-['Plus_Jakarta_Sans']">VELOMETRIX</span>
+          <span class="text-[9px] tracking-widest uppercase font-semibold text-brand-accent block mt-1">Template Docs v1.0</span>
+        </div>
+      </a>
+
+      <!-- Quick Jump Nav -->
+      <nav class="space-y-6 text-xs">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Getting Started</span>
+          <div class="space-y-1.5 pl-2 border-l border-slate-800">
+            <a href="#overview" class="block text-slate-300 hover:text-brand-accent">1. Overview & Highlights</a>
+            <a href="#quickstart" class="block text-slate-300 hover:text-brand-accent">2. Quick Start Guide</a>
+            <a href="#structure" class="block text-slate-300 hover:text-brand-accent">3. File & Folder Hierarchy</a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Design & Styling</span>
+          <div class="space-y-1.5 pl-2 border-l border-slate-800">
+            <a href="#palette" class="block text-slate-300 hover:text-brand-accent">4. Color Palette & Tokens</a>
+            <a href="#typography" class="block text-slate-300 hover:text-brand-accent">5. Typography & Fonts</a>
+            <a href="#theming" class="block text-slate-300 hover:text-brand-accent">6. Dark Mode & RTL Guide</a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Features & Engine</span>
+          <div class="space-y-1.5 pl-2 border-l border-slate-800">
+            <a href="#mockdata" class="block text-slate-300 hover:text-brand-accent">7. Mock Data & LocalStorage</a>
+            <a href="#dashboard" class="block text-slate-300 hover:text-brand-accent">8. Rider Dashboard Architecture</a>
+            <a href="#charts" class="block text-slate-300 hover:text-brand-accent">9. Chart.js Visualizations</a>
+            <a href="#booking" class="block text-slate-300 hover:text-brand-accent">10. Booking Wizard Flow</a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Customization</span>
+          <div class="space-y-1.5 pl-2 border-l border-slate-800">
+            <a href="#adding-content" class="block text-slate-300 hover:text-brand-accent">11. Adding Services & Posts</a>
+            <a href="#deployment" class="block text-slate-300 hover:text-brand-accent">12. Production Deployment</a>
+            <a href="#credits" class="block text-slate-300 hover:text-brand-accent">13. Credits & Licenses</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-slate-800 text-xs">
+      <a href="../index.html" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 text-brand-accent font-semibold hover:bg-slate-800 transition-colors">
+        <span>&larr; View Live Template</span>
+        <i class="bi bi-box-arrow-up-right"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Documentation Content -->
+  <div class="lg:pl-72 flex-grow flex flex-col min-w-0">
+
+    <!-- Top Bar -->
+    <header class="site-header sticky top-0 z-20 h-16 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 sm:px-10 flex items-center justify-between transition-colors duration-200">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold text-slate-500 dark:text-slate-400">Documentation</span>
+        <span class="text-slate-400 dark:text-slate-600">/</span>
+        <span class="text-xs font-bold text-slate-900 dark:text-white">VELOMETRIX HTML Template Guide</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="../login.html" title="Login" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-brand-accent transition-colors">
+          <i class="bi bi-box-arrow-in-right mr-1"></i> Login
+        </a>
+        <a href="../index.html" class="btn-accent px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
+          <i class="bi bi-eye"></i> Live Demo
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-6 sm:px-10 py-12 space-y-16">
+
+      <!-- Section 1: Overview -->
+      <section id="overview" class="space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-brand-accent/20 text-brand-accent border border-brand-accent/30 font-mono">
+          VERSION 1.0.0 • PRODUCTION READY
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white font-['Plus_Jakarta_Sans']">
+          VELOMETRIX – Bicycle Fitting & Performance Studio
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          VELOMETRIX is a state-of-the-art, commercial-grade HTML5 website template and interactive frontend Rider Dashboard crafted specifically for professional bicycle fitting laboratories, cycling biomechanists, endurance sports clinics, and aerodynamic performance centers.
+        </p>
+
+        <!-- Highlights 3-Card Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+          <div class="p-5 rounded-2xl bg-brand-primary border border-slate-800">
+            <i class="bi bi-cpu text-brand-accent text-2xl mb-2 block"></i>
+            <h4 class="text-sm font-bold text-white mb-1">Zero Build Step</h4>
+            <p class="text-xs text-slate-400">Runs directly out of the box in any modern browser without requiring Node.js, npm, or compiler configurations.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-brand-primary border border-slate-800">
+            <i class="bi bi-speedometer2 text-sky-400 text-2xl mb-2 block"></i>
+            <h4 class="text-sm font-bold text-white mb-1">Frontend Dashboard</h4>
+            <p class="text-xs text-slate-400">Complete 9-page Rider Portal with live Chart.js charts, bike garage CRUD, fit comparison tool, and printable PDF sheets.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-brand-primary border border-slate-800">
+            <i class="bi bi-globe2 text-purple-400 text-2xl mb-2 block"></i>
+            <h4 class="text-sm font-bold text-white mb-1">Dark Mode & RTL</h4>
+            <p class="text-xs text-slate-400">Built-in theme persistence (Light, Dark, and OS sync) along with full Right-to-Left bidirectional language layout.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Quick Start -->
+      <section id="quickstart" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">2. Quick Start Guide</h2>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Because VELOMETRIX is 100% frontend-only, you can view and test it immediately:
+        </p>
+
+        <div class="space-y-3">
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+            <div class="font-bold text-white flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center font-bold text-[10px]">1</span>
+              Local Double-Click / Direct File Opening
+            </div>
+            <p class="text-slate-400 pl-7">
+              Open <code class="text-brand-accent">index.html</code> directly in Google Chrome, Microsoft Edge, Mozilla Firefox, or Apple Safari. All pages and interactive scripts are self-contained.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+            <div class="font-bold text-white flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center font-bold text-[10px]">2</span>
+              Optional Local Web Server
+            </div>
+            <p class="text-slate-400 pl-7 mb-2">If you prefer running a local HTTP server:</p>
+            <pre class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 overflow-x-auto ml-7"><code># Using Python:
+python -m http.server 8000
+
+# Using Node.js npx:
+npx serve .
+
+# Then open http://localhost:8000 in your browser</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: File & Folder Hierarchy -->
+      <section id="structure" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">3. File & Folder Hierarchy</h2>
+        <pre class="bg-brand-primary p-5 rounded-2xl border border-slate-800 text-xs text-slate-300 overflow-x-auto"><code>bicycle/
+├── index.html                   # Home Page 1 (Professional Cycling Performance)
+├── home-2.html                  # Home Page 2 (Cycling Science & Biomechanics)
+├── about.html                   # About Us & Studio Philosophy
+├── services.html                # Services Catalog with Category Filters
+├── service-details.html         # Dynamic Service Details (via ?id=...)
+├── pricing.html                 # Fit Packages, Comparison Matrix & FAQs
+├── blog.html                    # Cycling Biomechanics Journal
+├── blog-details.html            # Dynamic Article Details (via ?id=...)
+├── contact.html                 # Contact, Interactive Map & Lead Form
+├── login.html                   # Rider Portal Authentication
+├── register.html                # Athlete Account Registration
+├── forgot-password.html         # Password Reset Workflow
+├── 404.html                     # 404 Error - Dropped From The Peloton
+├── coming-soon.html             # Virtual Wind Tunnel Calibration & Countdown
+├── dashboard/                   # Dedicated Rider Dashboard Application
+│   ├── index.html               # Dashboard Overview & Quick Telemetry
+│   ├── book-appointment.html   # Studio Session Booking Wizard
+│   ├── appointments.html       # Appointment History, Reschedule & Cancel
+│   ├── fit-history.html         # Measurement History & Delta Comparator
+│   ├── analytics.html           # Performance Charts (4 Chart.js Views)
+│   ├── reports.html             # Printable Lab Measurement Report (@media print)
+│   ├── bikes.html               # Bicycle Garage & Fleet Management
+│   ├── profile.html             # Rider Anthropometrics & FTP Editor
+│   └── settings.html            # Unit Toggles & Demo Data Reset
+├── assets/
+│   ├── css/
+│   │   ├── main.css             # Design Tokens, Slider, Modals, Print Styles
+│   │   ├── responsive.css       # Mobile Breakpoints & Drawer Transitions
+│   │   ├── dark-mode.css        # Surface & Input Dark Mode Overrides
+│   │   └── rtl.css              # Bidirectional Right-to-Left Rules
+│   ├── js/
+│   │   ├── mock-data.js         # Single-Source Structured JSON Database & Storage
+│   │   ├── theme.js             # Theme & RTL Switcher Engine
+│   │   ├── validation.js        # Accessible Client-Side Form Validator
+│   │   ├── main.js              # Header, Mobile Drawer, Comparison Slider, Modals
+│   │   ├── navigation.js        # Catalog Filters & Dynamic Page Content Renderer
+│   │   ├── booking.js           # Reservation Wizard & Time Slot Generator
+│   │   ├── dashboard.js         # Garage CRUD, Reschedule Modals, Print Engine
+│   │   └── charts.js            # Chart.js Graphs (Knee, Cockpit, Balance, Radar)
+│   └── images/
+│       ├── home/                # High-res photography & Hero graphics
+│       ├── services/            # 3D Motion, Saddle Pressure, Cleats, Aero
+│       ├── about/               # Studio Facility & Biomechanics Bay
+│       ├── team/                # Certified Fitter Portraits & Badges
+│       ├── blog/                # Scientific Diagram Illustrations
+│       ├── dashboard/           # Bike SVGs & Rider Avatars
+│       └── IMAGE_PROMPTS.md     # Full generative prompts documentation
+└── documentation/
+    └── index.html               # Buyer Documentation (This Guide)</code></pre>
+      </section>
+
+      <!-- Section 4: Palette & Typography -->
+      <section id="palette" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">4. Color Palette & Typography</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="p-4 rounded-xl bg-[#101D2C] border border-slate-700 text-white">
+            <span class="text-xs font-bold block">Deep Navy</span>
+            <span class="font-mono text-[11px] text-slate-400">#101D2C</span>
+            <span class="text-[10px] text-slate-400 block mt-2">Primary Brand</span>
+          </div>
+          <div class="p-4 rounded-xl bg-[#34465B] border border-slate-700 text-white">
+            <span class="text-xs font-bold block">Slate Blue</span>
+            <span class="font-mono text-[11px] text-slate-300">#34465B</span>
+            <span class="text-[10px] text-slate-300 block mt-2">Secondary Card</span>
+          </div>
+          <div class="p-4 rounded-xl bg-[#B7E64A] border border-slate-300 text-brand-primary">
+            <span class="text-xs font-bold block">Performance Lime</span>
+            <span class="font-mono text-[11px] font-bold">#B7E64A</span>
+            <span class="text-[10px] block mt-2">Accent / CTAs</span>
+          </div>
+          <div class="p-4 rounded-xl bg-[#101820] border border-slate-800 text-white">
+            <span class="text-xs font-bold block">Carbon Black</span>
+            <span class="font-mono text-[11px] text-slate-400">#101820</span>
+            <span class="text-[10px] text-slate-400 block mt-2">Dark Background</span>
+          </div>
+        </div>
+
+        <div id="typography" class="pt-4 text-xs text-slate-300 space-y-2">
+          <p><strong>Primary Typography:</strong> <code class="text-brand-accent">Inter</code> and <code class="text-brand-accent">Plus Jakarta Sans</code> via Google Fonts CDN.</p>
+          <p><strong>Technical Telemetry:</strong> <code class="text-brand-accent">JetBrains Mono</code> for millimeter coordinates, session IDs, and watt metrics.</p>
+        </div>
+      </section>
+
+      <!-- Section 5: Theming & RTL -->
+      <section id="theming" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">5. Dark Mode & RTL Support</h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Both public pages and dashboard screens support dark mode and Right-to-Left (RTL) mode. State is automatically persisted in <code class="text-brand-accent">localStorage.getItem('velometrix_theme')</code> and <code class="text-brand-accent">localStorage.getItem('velometrix_direction')</code>.
+        </p>
+
+        <pre class="bg-brand-primary p-4 rounded-xl border border-slate-800 text-xs text-slate-300"><code>// Programmatic toggles via theme.js:
+window.VelometrixTheme.setTheme('dark');    // or 'light'
+window.VelometrixTheme.toggleRTL();          // toggles dir="rtl" on &lt;html&gt;</code></pre>
+      </section>
+
+      <!-- Section 6: Mock Data & LocalStorage -->
+      <section id="mockdata" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">6. Mock Data & LocalStorage Schema</h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          The core data store lives in <code class="text-brand-accent">assets/js/mock-data.js</code>. All user modifications (booking sessions, registering bikes, editing profile metrics) persist to browser <code class="text-brand-accent">localStorage</code> under the prefix <code class="text-brand-accent">velometrix_</code>.
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs bg-brand-primary rounded-xl border border-slate-800">
+            <thead class="bg-slate-900 border-b border-slate-800 text-[10px] uppercase text-slate-400 font-bold">
+              <tr>
+                <th class="p-3">Storage Key</th>
+                <th class="p-3">Default Constant</th>
+                <th class="p-3">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-slate-300">
+              <tr>
+                <td class="p-3 font-mono text-brand-accent">velometrix_profile</td>
+                <td class="p-3 font-mono">DEFAULT_RIDER_PROFILE</td>
+                <td class="p-3">Rider contact, anthropometrics (height, inseam), and FTP.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono text-brand-accent">velometrix_appointments</td>
+                <td class="p-3 font-mono">DEFAULT_APPOINTMENTS</td>
+                <td class="p-3">Upcoming, completed, and canceled fitting sessions.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono text-brand-accent">velometrix_bikes</td>
+                <td class="p-3 font-mono">DEFAULT_BIKES</td>
+                <td class="p-3">Bicycle garage fleet (models, frame sizes, saddles, cranks).</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono text-brand-accent">velometrix_fitHistory</td>
+                <td class="p-3 font-mono">DEFAULT_FIT_HISTORY</td>
+                <td class="p-3">4 historical sessions with 8 millimeter measurements each.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 7: Adding Services & Articles -->
+      <section id="adding-content" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">7. Adding Services & Articles</h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          To add a new fitting service or scientific knowledge article, simply edit <code class="text-brand-accent">assets/js/mock-data.js</code>. The catalog pages (<code class="text-brand-accent">services.html</code>, <code class="text-brand-accent">blog.html</code>) and dynamic details pages (<code class="text-brand-accent">service-details.html?id=...</code>, <code class="text-brand-accent">blog-details.html?id=...</code>) will automatically render the new entries.
+        </p>
+
+        <pre class="bg-brand-primary p-4 rounded-xl border border-slate-800 text-xs text-slate-300 overflow-x-auto"><code>// Example: Adding to VELOMETRIX_SERVICES in assets/js/mock-data.js
+{
+  id: "gravel-cockpit-fit",
+  title: "Gravel & Ultra-Endurance Optimization",
+  category: "Cycling Optimization",
+  price: 280,
+  duration: "1.75 Hours",
+  image: "assets/images/services/service-mtb-fit.jpg",
+  shortDesc: "Vibration isolation and multi-hand position reach optimization for unpaved terrain.",
+  overview: "Extended gravel racing requires a balanced compromise between aero tuck and upper-body fatigue prevention...",
+  whoIsFor: ["Unbound Gravel competitors", "Bikepackers", "Multi-surface riders"],
+  procedure: [
+    { step: 1, title: "Handlebar Flare & Hood Ergonomics", desc: "Align brake levers with neutral wrist angle in drops." }
+  ],
+  outcomes: ["50% reduction in ulnar nerve palsy", "Stable handling through loose gravel"],
+  faqs: [
+    { q: "Should I fit with loaded bags?", a: "Yes, bring your standard frame bag setup." }
+  ]
+}</code></pre>
+      </section>
+
+      <!-- Section 8: Deployment -->
+      <section id="deployment" class="space-y-4 pt-8 border-t border-slate-800">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">8. Production Deployment</h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          VELOMETRIX is 100% static HTML5/CSS/JS. It can be hosted on any web server:
+        </p>
+        <ul class="list-disc list-inside text-xs text-slate-400 space-y-1.5 pl-2">
+          <li><strong>Netlify / Vercel:</strong> Drag and drop the root folder into the dashboard.</li>
+          <li><strong>GitHub Pages:</strong> Push to a GitHub repository and enable Pages from the main branch.</li>
+          <li><strong>Apache / NGINX:</strong> Upload all files to your <code class="text-brand-accent">public_html</code> or <code class="text-brand-accent">/var/www/html</code> folder.</li>
+        </ul>
+      </section>
+
+      <!-- Section 9: Credits & Licenses -->
+      <section id="credits" class="space-y-4 pt-8 border-t border-slate-800 pb-12">
+        <h2 class="text-2xl font-bold text-white font-['Plus_Jakarta_Sans']">9. Credits & Licenses</h2>
+        <div class="text-xs text-slate-400 space-y-2">
+          <p><strong>Tailwind CSS:</strong> Released under the MIT License.</p>
+          <p><strong>Bootstrap Icons:</strong> Released under the MIT License by the Bootstrap Team.</p>
+          <p><strong>Chart.js:</strong> Open source charting library under the MIT License.</p>
+          <p><strong>Google Fonts:</strong> Open Font License (OFL) – Inter, Plus Jakarta Sans, JetBrains Mono.</p>
+          <p><strong>Imagery:</strong> Laboratory visuals created via custom sports performance prompts documented in <code class="text-brand-accent">assets/images/IMAGE_PROMPTS.md</code>.</p>
+        </div>
+
+        <div class="mt-8 p-6 rounded-2xl bg-brand-primary border border-slate-800 text-center">
+          <h4 class="text-sm font-bold text-white mb-1">Need Assistance or Custom Extension?</h4>
+          <p class="text-xs text-slate-400 mb-4">Dedicated customer support is available for commercial license holders.</p>
+          <a href="../contact.html" class="btn-accent px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center gap-2">
+            <i class="bi bi-envelope"></i> Contact Engineering Team
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/theme.js"></script>
+</body>
+</html>

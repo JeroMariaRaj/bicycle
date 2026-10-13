@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Calibration Underway | VELOMETRIX Aero Lab</title>
+  <meta name="description" content="VELOMETRIX Virtual Wind Tunnel & Dynamic CdA Telemetry Lab is undergoing precision calibration. Join the priority waitlist for early access.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A3D438',
+              lightBg: '#F7F9FC',
+              darkBg: '#101820',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              borderDark: '#243242'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Bootstrap Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-brand-bgLight dark:bg-brand-darkBg text-slate-800 dark:text-slate-100 flex flex-col min-h-screen relative selection:bg-brand-accent selection:text-brand-primary transition-colors duration-200">
+
+  <!-- Background Animated Grid Pattern & Glows -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f29370f_1px,transparent_1px),linear-gradient(to_bottom,#1f29370f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-accent/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="site-header sticky top-0 z-40 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-brand-accent text-brand-primary flex items-center justify-center font-extrabold text-xl shadow-lg shadow-brand-accent/20 group-hover:scale-105 transition-transform">
+          V
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white block leading-none font-['Plus_Jakarta_Sans']">VELOMETRIX</span>
+          <span class="text-[10px] tracking-widest uppercase font-semibold text-slate-500 dark:text-brand-accent block mt-1">Aero Telemetry Lab</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" class="theme-toggle-btn p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:text-brand-accent hover:border-slate-300 dark:hover:border-slate-700 transition-colors" title="Toggle Theme">
+          <i class="bi bi-sun-fill hidden dark:inline"></i>
+          <i class="bi bi-moon-fill inline dark:hidden"></i>
+        </button>
+        <button id="rtlToggleBtn" class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl text-xs font-mono border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-brand-accent hover:text-brand-primary dark:hover:text-white transition-colors" title="Toggle RTL">
+          RTL
+        </button>
+        <a href="login.html" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors" title="Login">
+          <i class="bi bi-box-arrow-in-right text-brand-accent"></i> Login
+        </a>
+        <a href="index.html" class="hidden sm:inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors">
+          <i class="bi bi-arrow-left"></i> Main Studio
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Status Ticker -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary border border-brand-accent/40 text-brand-accent font-mono text-xs uppercase tracking-wider mb-8 shadow-lg shadow-brand-accent/5">
+        <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+        <span>Aero Simulation Bay 04: Virtual Wind Tunnel Calibration</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6 font-['Plus_Jakarta_Sans']">
+        Real-Time CdA Telemetry <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-lime-200 to-sky-400">Launching Very Soon</span>
+      </h1>
+
+      <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+        We are finalizing our next-generation virtual wind tunnel facility. High-speed fluid dynamic simulation paired with live 3D rider motion capture will allow millimetric aerodynamic optimizations without traveling to an indoor velodrome.
+      </p>
+
+      <!-- Live Countdown Timer -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mb-12">
+        <div class="p-5 rounded-2xl bg-brand-primary/90 border border-slate-800 backdrop-blur-md shadow-xl flex flex-col items-center">
+          <span id="countdownDays" class="text-4xl sm:text-5xl font-extrabold font-mono text-white text-brand-accent">28</span>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-2">Days</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-brand-primary/90 border border-slate-800 backdrop-blur-md shadow-xl flex flex-col items-center">
+          <span id="countdownHours" class="text-4xl sm:text-5xl font-extrabold font-mono text-white text-brand-accent">14</span>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-2">Hours</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-brand-primary/90 border border-slate-800 backdrop-blur-md shadow-xl flex flex-col items-center">
+          <span id="countdownMins" class="text-4xl sm:text-5xl font-extrabold font-mono text-white text-brand-accent">36</span>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-2">Minutes</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-brand-primary/90 border border-slate-800 backdrop-blur-md shadow-xl flex flex-col items-center">
+          <span id="countdownSecs" class="text-4xl sm:text-5xl font-extrabold font-mono text-brand-accent">45</span>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-2">Seconds</span>
+        </div>
+      </div>
+
+      <!-- Priority Notification Form -->
+      <div class="max-w-xl mx-auto bg-brand-primary/80 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-md shadow-2xl mb-14">
+        <h3 class="text-lg font-bold text-white mb-2">Claim Priority Access</h3>
+        <p class="text-xs text-slate-400 mb-6">Receive an invitation to our inaugural aero testing cohort and an exclusive 20% discount on initial calibration appointments.</p>
+        
+        <form id="comingSoonNotifyForm" class="flex flex-col sm:flex-row gap-3">
+          <div class="flex-grow relative">
+            <input 
+              type="email" 
+              id="notifyEmail" 
+              name="email"
+              placeholder="Enter your athletic email address..." 
+              required
+              class="w-full pl-11 pr-4 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent placeholder-slate-500 transition-all"
+            >
+            <i class="bi bi-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+          </div>
+          <button type="submit" class="btn-accent px-6 py-3.5 rounded-xl text-sm font-bold flex-shrink-0 flex items-center justify-center gap-2">
+            <span>Notify Me</span>
+            <i class="bi bi-bell-fill"></i>
+          </button>
+        </form>
+        <p class="text-[11px] text-slate-500 mt-3 text-left flex items-center gap-1.5">
+          <i class="bi bi-shield-check text-brand-accent"></i> Strict zero-spam policy. Telemetry updates only.
+        </p>
+      </div>
+
+      <!-- Sneak Peek Highlights -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <div class="p-6 rounded-2xl bg-brand-primary/40 border border-slate-800/80 hover:border-slate-700 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-lime-400/10 text-brand-accent flex items-center justify-center text-xl mb-4">
+            <i class="bi bi-wind"></i>
+          </div>
+          <h4 class="text-sm font-bold text-white mb-1.5">Virtual Wind Tunnel (VWT)</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Continuous digital twin CFD aerodynamic simulation mapping drag surface in 60 frames per second.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-brand-primary/40 border border-slate-800/80 hover:border-slate-700 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-sky-400/10 text-sky-400 flex items-center justify-center text-xl mb-4">
+            <i class="bi bi-activity"></i>
+          </div>
+          <h4 class="text-sm font-bold text-white mb-1.5">Wireless EMG Biofeedback</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Medical surface electromyography monitoring quadriceps and hamstring fatigue balance under high watts.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-brand-primary/40 border border-slate-800/80 hover:border-slate-700 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-purple-400/10 text-purple-400 flex items-center justify-center text-xl mb-4">
+            <i class="bi bi-cpu"></i>
+          </div>
+          <h4 class="text-sm font-bold text-white mb-1.5">Rider Cockpit Telemetry</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Immediate integration with Wahoo and Garmin head units for live position compliance verification on road.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 relative z-10">
+    <div>
+      &copy; 2026 VELOMETRIX Cycling Performance Lab. Boulder, Colorado.
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="index.html" class="hover:text-brand-accent transition-colors">Studio Home</a>
+      <a href="services.html" class="hover:text-brand-accent transition-colors">Standard Fits</a>
+      <a href="contact.html" class="hover:text-brand-accent transition-colors">Contact Lab</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Live Countdown Timer
+    (function() {
+      // Set launch date 28 days, 14 hours ahead
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 28);
+      targetDate.setHours(targetDate.getHours() + 14);
+
+      function updateTimer() {
+        const now = new Date().getTime();
+        const distance = targetDate.getTime() - now;
+
+        if (distance < 0) return;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const dEl = document.getElementById("countdownDays");
+        const hEl = document.getElementById("countdownHours");
+        const mEl = document.getElementById("countdownMins");
+        const sEl = document.getElementById("countdownSecs");
+
+        if (dEl) dEl.textContent = String(days).padStart(2, '0');
+        if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+        if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+        if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+      }
+
+      setInterval(updateTimer, 1000);
+      updateTimer();
+
+      // Form Handler
+      const notifyForm = document.getElementById("comingSoonNotifyForm");
+      if (notifyForm) {
+        notifyForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const emailInput = document.getElementById("notifyEmail");
+          if (!emailInput || !emailInput.value.includes("@")) {
+            VelometrixToast.show("Please enter a valid email address.", "error");
+            return;
+          }
+
+          VelometrixToast.show(`Thank you! Priority invitation registered for ${emailInput.value}`, "success");
+          emailInput.value = "";
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

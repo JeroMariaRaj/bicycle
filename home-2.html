@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELOMETRIX | Precision Bicycle Fitting & Performance Lab</title>
+  <meta name="description" content="Editorial and technology-driven cycling biomechanics laboratory. CdA wind tunnel optimization, pedal torque vector telemetry, and musculoskeletal kinetics.">
+  <meta name="keywords" content="cycling science, biomechanics lab, CdA aero testing, pedal stroke torque vector, 3D motion tracking">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VELOMETRIX | Precision Bicycle Fitting & Performance Lab">
+  <meta property="og:description" content="Editorial and sports science bicycle fitting. Real-time telemetry, CdA aero profiling, and kinetic analysis.">
+  <meta property="og:image" content="assets/images/home/hero-2.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A0D136',
+              bgLight: '#F7F9FC',
+              bgDark: '#101820',
+              cardDark: '#16222F',
+              muted: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-brand-bgLight dark:bg-brand-bgDark text-slate-800 dark:text-slate-100 transition-colors duration-200">
+
+
+  <!-- ================= SITE HEADER ================= -->
+  <header class="site-header sticky top-0 z-40 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl sm:text-2xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[10px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center lg:gap-3.5 xl:gap-7 text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-700 dark:text-slate-200">
+          <div class="relative group py-2">
+            <button class="active flex items-center gap-1 text-lime-700 dark:text-brand-accent font-bold hover:text-lime-600 dark:hover:text-brand-accent transition-colors">
+              Home <i class="bi bi-chevron-down text-xs group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute left-0 top-full pt-2 w-64 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+              <div class="dropdown-panel bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-2 shadow-xl dark:shadow-2xl">
+                <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+                  <i class="bi bi-speedometer2 text-lime-600 dark:text-brand-accent mt-0.5"></i>
+                  <div>
+                    <div class="font-bold text-sm">Home 1 – Performance</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-normal">Precision fitting &amp; metrics</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="active flex items-start gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800/60 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                  <i class="bi bi-activity text-sky-500 dark:text-sky-400 mt-0.5"></i>
+                  <div>
+                    <div class="font-bold text-sm">Home 2 – Biomechanics</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-normal">Science, kinetics &amp; telemetry</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">About Us</a>
+          <a href="services.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Services</a>
+          <a href="pricing.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Pricing</a>
+          <a href="blog.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Insights</a>
+          <a href="contact.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Contact</a>
+          <a href="dashboard/index.html" class="hover:text-lime-600 dark:hover:text-brand-accent transition-colors">Dashboard</a>
+        </nav>
+
+        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <button class="theme-toggle-btn w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm text-xs sm:text-sm" aria-label="Toggle theme">
+            <i class="bi bi-sun-fill text-amber-500"></i>
+          </button>
+          <button class="rtl-toggle-btn px-2 sm:px-2.5 h-8 sm:h-9 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm" aria-label="Toggle layout direction">
+            <span class="rtl-status-text">RTL</span>
+          </button>
+          <a href="login.html" class="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-lime-500 dark:hover:border-brand-accent hover:text-slate-900 dark:hover:text-white transition-all shadow-sm" title="Login">
+            <i class="bi bi-box-arrow-in-right text-lime-600 dark:text-brand-accent"></i>
+            <span>Login</span>
+          </a>
+          <a href="login.html" class="hidden lg:inline-flex btn-accent px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold shadow-md items-center gap-2 whitespace-nowrap">
+            <span>Book Lab Fit</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <button class="mobile-menu-btn lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:text-slate-900 dark:hover:text-white shrink-0" aria-label="Open menu">
+            <i class="bi bi-list text-xl sm:text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+  <div class="mobile-menu-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden"></div>
+  <aside class="mobile-menu-drawer fixed top-0 right-0 bottom-0 w-80 max-w-full bg-slate-900 border-l border-slate-800 p-6 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[9px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+        <button class="mobile-menu-close w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="Close menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-1.5 py-6 text-sm font-semibold text-slate-200">
+        <!-- Home Dropdown -->
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-toggle p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between w-full text-left transition-colors" aria-expanded="false">
+            <span class="font-bold">Home</span>
+            <i class="bi bi-chevron-down text-xs transition-transform duration-200"></i>
+          </button>
+          <div class="mobile-dropdown-menu hidden flex-col gap-1 pl-3 pt-1 pb-1">
+            <a href="index.html" class="p-2 rounded-xl hover:bg-slate-800/60 flex items-center justify-between text-xs transition-colors">
+              <span class="flex items-center gap-2">
+                <i class="bi bi-speedometer2 text-lime-600 dark:text-brand-accent"></i>
+                <span>Home 1 – Performance</span>
+              </span>
+              <i class="bi bi-chevron-right text-[10px] text-slate-400"></i>
+            </a>
+            <a href="home-2.html" class="p-2 rounded-xl hover:bg-slate-800/60 flex items-center justify-between text-xs transition-colors">
+              <span class="flex items-center gap-2">
+                <i class="bi bi-activity text-sky-500 dark:text-sky-400"></i>
+                <span>Home 2 – Biomechanics</span>
+              </span>
+              <i class="bi bi-chevron-right text-[10px] text-slate-400"></i>
+            </a>
+          </div>
+        </div>
+
+        <a href="about.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>About Us</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="services.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Services</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="pricing.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Pricing</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="blog.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Insights</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="contact.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Contact</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+        <a href="dashboard/index.html" class="p-2.5 rounded-xl hover:bg-slate-800/60 flex items-center justify-between transition-colors">
+          <span>Dashboard</span> <i class="bi bi-chevron-right text-xs text-slate-400"></i>
+        </a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+      <a href="login.html" class="btn-accent w-full py-3 rounded-xl font-bold text-center block text-xs uppercase tracking-wider">
+        Book Appointment
+      </a>
+      <a href="login.html" class="w-full py-2.5 rounded-xl font-semibold text-center block text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+        Login
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ================= 1. ASYMMETRIC SPLIT-SCREEN INTRO (HOME 2) ================= -->
+    <section class="relative bg-slate-950 text-white min-h-0 lg:min-h-[720px] flex items-center border-b border-slate-800 overflow-hidden">
+      <!-- Background subtle laser lines -->
+      <div class="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none"></div>
+      
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- Editorial Column (6 Cols) -->
+          <div class="lg:col-span-6 space-y-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-md text-[11px] font-mono font-bold bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                  LAB DIVISION: BIO-04
+                </span>
+                <span class="text-xs text-slate-400 font-mono">CdA &bull; KINETICS &bull; FORCE VECTORS</span>
+              </div>
+
+              <h1 class="hero-headline text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08]">
+                The Biomechanics <br>
+                of Human Velocity.
+              </h1>
+
+              <p class="text-base text-slate-300 leading-relaxed font-normal mt-4">
+                An engineering-grade approach to cycling performance. We analyze the complex musculoskeletal interface between the rider's pelvis, feet, and cockpit to minimize physiological resistance and aerodynamic drag.
+              </p>
+
+              <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 font-mono text-xs mt-6">
+                <div class="flex justify-between text-slate-400 pb-2 border-b border-slate-800">
+                  <span>FRONTAL AREA ESTIMATION:</span>
+                  <span class="text-brand-accent font-bold">0.201 m² (TARGET REACHED)</span>
+                </div>
+                <div class="flex justify-between text-slate-400 pb-2 border-b border-slate-800">
+                  <span>MAXIMUM PELVIC ROCKING:</span>
+                  <span class="text-sky-400 font-bold">&le; 1.5° (SYMMETRIC)</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>TORQUE DISPERSION:</span>
+                  <span class="text-white font-bold">360° SPINSCAN OPTIMIZED</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-4">
+              <a href="login.html" class="btn-accent px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl shadow-brand-accent/15 text-center">
+                <span>Schedule Biomechanics Assessment</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="#science-breakdown" class="btn-outline px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 text-center">
+                <span>View Lab Science</span>
+                <i class="bi bi-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Asymmetric Visual Column (6 Cols) -->
+          <div class="lg:col-span-6 relative flex flex-col">
+            <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-900 flex-1 h-full min-h-[300px] sm:min-h-[420px] lg:min-h-full flex flex-col">
+              <img src="assets/images/home/hero-2.jpg" alt="Triathlete in wind tunnel biomechanics session" class="w-full h-full object-cover flex-1">
+              
+              <!-- Floating Dynamic Telemetry HUD -->
+              <div class="absolute top-3 left-3 sm:top-4 sm:left-4 p-2.5 sm:p-3 rounded-xl bg-slate-950/85 backdrop-blur-md border border-slate-700 text-[10px] sm:text-[11px] font-mono text-slate-300">
+                <span class="text-brand-accent font-bold">TEST: AERO-DYNAMICS</span><br>
+                <span>AIRSPEED: 48.2 km/h</span><br>
+                <span>DRAG (CdA): 0.201 m²</span>
+              </div>
+
+              <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 max-w-[calc(100%-1.5rem)] p-2 sm:p-2.5 rounded-xl bg-brand-primary/90 backdrop-blur-md border border-brand-accent/50 text-[10px] sm:text-[11px] font-mono text-brand-accent truncate">
+                <i class="bi bi-check2-circle mr-1"></i><span>ACTIVE OPTICAL TRACKING 60FPS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. CYCLING SCIENCE & BIOMECHANICS SHOWCASE ================= -->
+    <section id="science-breakdown" class="py-20 lg:py-28 bg-white dark:bg-brand-bgDark border-b border-slate-200 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16">
+          <span class="text-xs font-mono font-bold text-lime-600 dark:text-brand-accent uppercase tracking-widest block mb-2">
+            METHODOLOGY // 01
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            The Three Pillars of Cycling Kinetics
+          </h2>
+          <p class="text-base text-slate-600 dark:text-slate-400 mt-2">
+            Every millimeter of cockpit alteration resonates across your entire kinetic chain. We address each mechanical variable in strict sequence.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-lime-500 transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+              <img src="assets/images/home/foot-pedal-foundation.jpg" alt="Foot-Pedal Foundation Varus and Valgus Wedging" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-brand-primary text-brand-accent flex items-center justify-center text-sm font-bold font-mono">
+                    01
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Foot-Pedal Foundation</h3>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  If the foot is unstable, the knee collapses and the pelvis tilts. We establish forefoot varus/valgus alignment, arch support, and cleat float before any saddle adjustments.
+                </p>
+              </div>
+              <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-700">
+                <li>&bull; Sagittal plane laser tracking</li>
+                <li>&bull; Subtalar neutral calibration</li>
+                <li>&bull; Q-factor stance width optimization</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-sky-400 transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+              <img src="assets/images/home/pelvic-center-of-mass.jpg" alt="Pelvic Center of Mass 64-Sensor Saddle Pressure Map" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-brand-primary text-sky-400 flex items-center justify-center text-sm font-bold font-mono">
+                    02
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pelvic Center of Mass</h3>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  The pelvis acts as the keystone of cycling posture. We use 64-sensor dynamic pressure mapping to balance ischial tuberosity load and relieve perineal nerve compression.
+                </p>
+              </div>
+              <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-700">
+                <li>&bull; Dynamic pelvic rock quantification</li>
+                <li>&bull; Pubic ramus pressure dispersion</li>
+                <li>&bull; 35+ test saddle ergonomic library</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-brand-accent transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+              <img src="assets/images/home/aerodynamic-cockpit.jpg" alt="Aerodynamic Cockpit and Thoracic Volume" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-brand-primary text-brand-accent flex items-center justify-center text-sm font-bold font-mono">
+                    03
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Aerodynamic Cockpit</h3>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  With a stable foundation and pelvis, we drop frontal area (CdA) without compressing thoracic lung volume or pinching the hip angle at top dead center.
+                </p>
+              </div>
+              <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-700">
+                <li>&bull; Open hip angle preservation (&gt;45°)</li>
+                <li>&bull; Narrow drop bar aerodynamic gain</li>
+                <li>&bull; Relaxed 15° shock-absorbing elbow angle</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 3. DISCIPLINE CATEGORIES (ROAD, MTB, TRI, TRACK) ================= -->
+    <section class="py-20 lg:py-28 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono font-bold text-lime-600 dark:text-brand-accent uppercase tracking-widest block mb-2">
+            DISCIPLINE PROFILES //
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Specialized Kinematics Across Disciplines
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+            Each cycling discipline requires distinct biomechanical priorities.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800 p-6 flex flex-col justify-between hover:border-brand-accent transition-all">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-lime-400/20 text-lime-500 flex items-center justify-center text-xl mb-4 font-bold">
+                <i class="bi bi-bicycle"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Road &amp; Gran Fondo</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Sustained power, climbing leverage, and neck endurance across 4-to-6 hour rides.
+              </p>
+            </div>
+            <div class="text-[11px] font-mono text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-700">
+              Knee Flexion: 35°–38° &bull; Torso: 40°–45°
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800 p-6 flex flex-col justify-between hover:border-brand-accent transition-all">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-sky-400/20 text-sky-400 flex items-center justify-center text-xl mb-4 font-bold">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Triathlon &amp; TT</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Frontal area CdA reduction while preserving hamstring elasticity for the run transition.
+              </p>
+            </div>
+            <div class="text-[11px] font-mono text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-700">
+              Seat Tube: 78°–80° &bull; CdA: &le;0.220 m²
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800 p-6 flex flex-col justify-between hover:border-brand-accent transition-all">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-brand-accent/20 text-lime-600 dark:text-brand-accent flex items-center justify-center text-xl mb-4 font-bold">
+                <i class="bi bi-signpost-split"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Gravel &amp; Bikepacking</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Vibration compliance, flared drop leverage, and wrist relief preventing ulnar nerve palsy.
+              </p>
+            </div>
+            <div class="text-[11px] font-mono text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-700">
+              Stack Height: +20mm &bull; Flare: 16°
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800 p-6 flex flex-col justify-between hover:border-brand-accent transition-all">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-500 flex items-center justify-center text-xl mb-4 font-bold">
+                <i class="bi bi-compass"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Mountain &amp; Enduro</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Standing attack posture, suspension sag compensation, brake lever reach, and arm pump relief.
+              </p>
+            </div>
+            <div class="text-[11px] font-mono text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-700">
+              Brake Angle: 35° &bull; Sag: 30% Rear
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 4. MOTION CAPTURE DEEP-DIVE ================= -->
+    <section class="py-20 lg:py-28 bg-brand-primary text-white border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <div class="lg:col-span-6 space-y-6 flex flex-col justify-between">
+            <div>
+              <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-brand-accent/20 text-brand-accent border border-brand-accent/40 mb-3 inline-block">
+                OPTICAL TELEMETRY AT 60 FPS
+              </span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2">
+                Why Static Bike Fitting Is Outdated
+              </h2>
+              <p class="text-slate-300 text-sm leading-relaxed mt-4">
+                When a rider is stationary, muscle tension drops and joint angles shift by up to 8 degrees compared to actual pedaling. Static goniometers miss your natural dynamic heel drop, cadence micro-shifts, and fatigue compensations.
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                Our 3D cameras track 8 active anatomical markers over 300+ continuous pedal revolutions. The system calculates statistical averages under true threshold resistance, guaranteeing an accurate, sustainable fit.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
+                <div class="p-3 sm:p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <div class="text-xl sm:text-2xl font-black text-brand-accent font-mono">0.5 mm</div>
+                  <div class="text-[11px] sm:text-xs text-slate-400 mt-1">Spatial Landmark Accuracy</div>
+                </div>
+                <div class="p-3 sm:p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <div class="text-xl sm:text-2xl font-black text-sky-400 font-mono">300+ Revs</div>
+                  <div class="text-[11px] sm:text-xs text-slate-400 mt-1">Continuous Dynamic Sampling</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 flex flex-col">
+            <div class="rounded-3xl overflow-hidden border border-slate-700 shadow-2xl flex-1 h-full min-h-[280px] sm:min-h-[380px] lg:min-h-full flex flex-col">
+              <img src="assets/images/services/service-3d-motion.jpg" alt="3D Optical Motion Capture session" class="w-full h-full object-cover flex-1">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. STUDIO EQUIPMENT & MEASUREMENT INSTRUMENTATION ================= -->
+    <section class="py-20 lg:py-28 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono font-bold text-lime-600 dark:text-brand-accent uppercase tracking-widest block mb-2">
+            HARDWARE SUITE //
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Studio Measurement Instrumentation
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+            Our laboratory bays utilize medical and Olympic-tier telemetry to eliminate speculation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-lime-500 transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img src="assets/images/equipment/vicon-retul.jpg" alt="Vicon and Retul 3D Optical Tracking System" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 space-y-2 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-lime-600 dark:text-brand-accent">OPTICAL ARRAY</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">Vicon &amp; Retül 3D Optics</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                  60 FPS synchronized infrared tracking of 8 anatomical joints under true metabolic workload.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-700">
+                Landmarks: 8 &bull; Sampling: 60Hz
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-sky-400 transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img src="assets/images/equipment/gebiomized-pressure.jpg" alt="GebioMized Dynamic Saddle Pressure Lab" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 space-y-2 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-sky-400">PRESSURE TELEMETRY</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">GebioMized Pressure Lab</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                  64-point sensor mat providing dynamic pelvic rotation mapping and soft-tissue relief telemetry.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-700">
+                Resolution: 64 Pts &bull; Dynamic 200Hz
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-brand-accent transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img src="assets/images/equipment/spinscan-torque.jpg" alt="SpinScan Torque Vector Crank Efficiency System" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 space-y-2 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-brand-accent">CRANK KINETICS</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">SpinScan Torque Vectors</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                  Dual-sided 360° pedaling telemetry mapping torque dead-spots and left/right power balance.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-700">
+                Arc: 360° &bull; Dual-Sided Watts
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between hover:border-amber-400 transition-all">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-900">
+              <img src="assets/images/equipment/cda-profiling.jpg" alt="CdA Virtual Aerodynamic Drag Profiler" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 space-y-2 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-amber-500">AERODYNAMICS</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">Virtual CdA Profiler</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                  Computational frontal drag modeling finding the optimal balance between aerodynamic tuck and power.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-700">
+                Frontal Area: m² &bull; CFD Modeling
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 6. CYCLIST SUCCESS STORIES / CASE STUDIES ================= -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-brand-bgDark border-b border-slate-200 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono font-bold text-lime-600 dark:text-brand-accent uppercase tracking-widest block mb-2">
+            CASE STUDIES //
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Documented Performance Gains
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+            Measurable biomechanical adaptations verified in race results.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold text-lime-700 dark:text-brand-accent">CASE #4092</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">ROAD RACE</span>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Patellar Relief &amp; +18W Threshold</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Rider experienced sharp right knee pain. Lab diagnosed 12mm low saddle and uncorrected forefoot varus. Saddle raised to 768mm, 1.5° wedge added. Pain eliminated in 48 hours.
+              </p>
+            </div>
+            <div class="p-3 rounded-xl bg-brand-primary text-white font-mono text-xs space-y-1">
+              <div class="flex justify-between"><span>BEFORE:</span> <span class="text-red-400">42° Knee / 265W FTP</span></div>
+              <div class="flex justify-between"><span>AFTER:</span> <span class="text-brand-accent font-bold">36° Knee / 283W FTP</span></div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold text-sky-700 dark:text-sky-400">CASE #3821</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">TRIATHLON 70.3</span>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">CdA Reduced by 0.024 m²</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Replaced traditional aero bars with 15° angled carbon forearms and narrowed pad width by 25mm. Shaved 5 minutes and 18 seconds off 90km bike split.
+              </p>
+            </div>
+            <div class="p-3 rounded-xl bg-brand-primary text-white font-mono text-xs space-y-1">
+              <div class="flex justify-between"><span>DRAG (CdA):</span> <span class="text-sky-400 font-bold">0.242 &rarr; 0.218 m²</span></div>
+              <div class="flex justify-between"><span>TIME GAIN:</span> <span class="text-brand-accent font-bold">-5m 18s @ 90km</span></div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold text-amber-700 dark:text-amber-400">CASE #2910</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">CENTURY ENDURANCE</span>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Total Saddle Numbness Resolution</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                GebioMized pressure mapping isolated 850 mbar perineal pressure spike. Swapped to short-nose cut-out saddle with 1.5° down tilt. 0 mbar soft tissue compression achieved.
+              </p>
+            </div>
+            <div class="p-3 rounded-xl bg-brand-primary text-white font-mono text-xs space-y-1">
+              <div class="flex justify-between"><span>PEAK PRESSURE:</span> <span class="text-amber-400">850 &rarr; 320 mbar</span></div>
+              <div class="flex justify-between"><span>NUMBNESS:</span> <span class="text-brand-accent font-bold">100% ELIMINATED</span></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 6. UNIQUE FAQS (HOME 2) ================= -->
+    <section class="py-20 lg:py-28 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+          <span class="text-xs font-mono font-bold text-lime-600 dark:text-brand-accent uppercase tracking-widest block mb-2">
+            SCIENCE &amp; LAB FAQS //
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="accordion-group space-y-4">
+          
+          <div class="accordion-item border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-800/80">
+            <button class="accordion-header w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" aria-expanded="true">
+              <span>What should I do if my bike frame size is slightly incorrect?</span>
+              <i class="bi bi-chevron-down accordion-icon text-slate-400 rotate-180 transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-body p-5 pt-0 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 mt-2">
+              In approximately 85% of cases, slight frame sizing errors can be completely resolved through cockpit component optimization: altering stem length, stem angle, handlebar reach, seatpost offset, and crank arm length. We carry test stems and handlebars to determine your exact specifications before you buy parts.
+            </div>
+          </div>
+
+          <div class="accordion-item border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-800/80">
+            <button class="accordion-header w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" aria-expanded="false">
+              <span>Do I need to be an elite racer to benefit from 3D motion capture?</span>
+              <i class="bi bi-chevron-down accordion-icon text-slate-400 transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-body p-5 pt-0 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 mt-2 hidden">
+              Not at all. In fact, recreational and gran fondo riders often gain the greatest lifestyle benefits because preventing overuse injuries, neck strain, and saddle sores makes cycling immensely more enjoyable. We fit riders of all fitness levels.
+            </div>
+          </div>
+
+          <div class="accordion-item border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-800/80">
+            <button class="accordion-header w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" aria-expanded="false">
+              <span>How are my fit measurements recorded and accessed?</span>
+              <i class="bi bi-chevron-down accordion-icon text-slate-400 transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-body p-5 pt-0 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 mt-2 hidden">
+              Immediately following your fitting session, our specialist generates a comprehensive digital report. These millimeter specifications and kinematic recordings are permanently archived in your VELOMETRIX Rider Dashboard account, where you can view, compare, and print them at any time.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 7. CONSULTATION BOOKING CTA ================= -->
+    <section class="py-16 bg-slate-950 text-white border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="p-10 rounded-3xl bg-brand-primary border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="space-y-2">
+            <span class="text-xs font-mono font-bold text-brand-accent uppercase">LAB AVAILABILITY</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Book a Biomechanics Consultation</h3>
+            <p class="text-xs text-slate-300">All appointments include our 30-day adaptation guarantee and follow-up review window.</p>
+          </div>
+          <div class="flex items-center gap-4 flex-shrink-0">
+            <a href="login.html" class="btn-accent px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider">
+              Reserve Lab Slot
+            </a>
+            <a href="services.html" class="btn-outline px-6 py-3.5 rounded-xl font-bold text-xs">
+              View Catalog
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer bg-slate-950 text-slate-400 text-xs py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2 text-white font-extrabold text-xl">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary border border-brand-accent flex items-center justify-center text-brand-accent">
+              <i class="bi bi-radar"></i>
+            </div>
+            VELO<span class="text-brand-accent">METRIX</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Cycling science and biomechanical engineering laboratory. Designed for competitive cyclists, endurance athletes, and bike performance professionals.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://www.strava.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="Strava"><i class="bi bi-strava"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-brand-accent hover:border-brand-accent transition-colors" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4">Fitting Services</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-details.html?id=3d-motion-fit" class="hover:text-brand-accent transition-colors">3D Motion Capture</a></li>
+            <li><a href="service-details.html?id=saddle-pressure-mapping" class="hover:text-brand-accent transition-colors">Saddle Pressure Mapping</a></li>
+            <li><a href="service-details.html?id=cleat-pedal-alignment" class="hover:text-brand-accent transition-colors">Cleat Alignment &amp; Shims</a></li>
+            <li><a href="service-details.html?id=aero-triathlon-fit" class="hover:text-brand-accent transition-colors">Triathlon &amp; TT Aero</a></li>
+            <li><a href="service-details.html?id=cda-aerodynamic-profiling" class="hover:text-brand-accent transition-colors">CdA Aero Profiling</a></li>
+            <li><a href="service-details.html?id=pedaling-efficiency-analysis" class="hover:text-brand-accent transition-colors">Pedaling Efficiency</a></li>
+            <li><a href="service-details.html?id=mountain-bike-ergonomic-fit" class="hover:text-brand-accent transition-colors">Mountain Bike Ergonomics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4">Quick Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html" class="hover:text-brand-accent transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-brand-accent transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-brand-accent transition-colors">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-brand-accent transition-colors">Insights</a></li>
+            <li><a href="contact.html" class="hover:text-brand-accent transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4">Insights Bulletin</h4>
+          <p class="text-[11px] text-slate-400 mb-3">Subscribe for clinical biomechanics whitepapers and laboratory updates.</p>
+          <form class="newsletter-form space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs focus:border-brand-accent focus:outline-none">
+            <button type="submit" class="w-full py-2 rounded-xl bg-brand-accent text-brand-primary font-bold text-xs hover:bg-brand-accentHover transition-colors">
+              Subscribe Free
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8 text-center text-[11px]">
+        <p>&copy; 2026 VELOMETRIX Biomechanics Studio. Commercial Frontend Template.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-to-top fixed bottom-5 right-5 z-40 w-10 h-10 rounded-xl bg-brand-accent text-brand-primary shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up font-bold"></i>
+  </button>
+
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Bike Fit Session | VELOMETRIX</title>
+  <meta name="description" content="Schedule your precision 3D motion capture bicycle fitting, saddle pressure mapping, or cleat optimization session at VELOMETRIX.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A3D438',
+              lightBg: '#F7F9FC',
+              darkBg: '#101820',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              borderDark: '#243242'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Bootstrap Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="dashboard-body bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex min-h-screen selection:bg-brand-accent selection:text-brand-primary transition-colors duration-200">
+
+  <!-- Sidebar Overlay for Mobile -->
+  <div id="dashboardSidebarBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- Dashboard Sidebar Navigation -->
+  <aside id="dashboardSidebar" class="fixed top-0 bottom-0 left-0 w-64 bg-white dark:bg-brand-primary border-r border-slate-200 dark:border-slate-800 z-50 flex flex-col justify-between transition-transform duration-300 -translate-x-full closed lg:translate-x-0">
+    <div>
+      <!-- Brand Header -->
+      <div class="h-20 flex items-center justify-between px-5 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+        <a href="../index.html" class="dashboard-brand flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[9px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+        <button id="closeDashboardSidebarBtn" class="lg:hidden text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white p-1 ml-2" aria-label="Close sidebar">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="p-4 space-y-1.5 text-xs font-semibold">
+        <a href="index.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-speedometer2 text-base"></i>
+          <span>Overview</span>
+        </a>
+        <a href="book-appointment.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl bg-brand-accent text-brand-primary font-bold shadow-md shadow-brand-accent/10">
+          <i class="bi bi-calendar-plus text-base"></i>
+          <span>Book Appointment</span>
+        </a>
+        <a href="appointments.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-check text-base"></i>
+          <span>My Appointments</span>
+        </a>
+        <a href="fit-history.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-clock-history text-base"></i>
+          <span>Fit History & Comparison</span>
+        </a>
+        <a href="analytics.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-graph-up text-base"></i>
+          <span>Performance Analytics</span>
+        </a>
+        <a href="reports.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-file-earmark-medical text-base"></i>
+          <span>Measurement Reports</span>
+        </a>
+        <a href="bikes.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-bicycle text-base"></i>
+          <span>My Bikes</span>
+        </a>
+        <a href="profile.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-person-lines-fill text-base"></i>
+          <span>Rider Profile</span>
+        </a>
+        <a href="settings.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-gear text-base"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
+        <a href="../index.html" class="hover:text-brand-accent flex items-center gap-1">
+          <i class="bi bi-box-arrow-left"></i> Public Site
+        </a>
+        <a href="../login.html" class="text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 flex items-center gap-1 font-semibold">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-grow lg:pl-64 flex flex-col min-w-0">
+
+    <!-- Top Bar -->
+    <header class="dashboard-top-navbar sticky top-0 z-30 h-20 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 flex items-center justify-between transition-colors duration-200">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <button id="mobileDashboardSidebarToggle" class="lg:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" aria-label="Open sidebar">
+          <i class="bi bi-list text-2xl"></i>
+        </button>
+
+        <!-- Brand Logo on Mobile / Tablet (Visible when sidebar is off-canvas) -->
+        <a href="../index.html" class="dashboard-brand flex lg:hidden items-center gap-2 group shrink-0">
+          <div class="brand-icon-box w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-base shadow-sm group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-sm sm:text-base font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-0.5 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7px] sm:text-[8px] tracking-normal uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+
+        <!-- Desktop Page Heading (Hidden on mobile where brand logo shows, visible on desktop lg:) -->
+        <div class="hidden lg:block">
+          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans']">Schedule Lab Session</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Select service, fitting bay specialist, and available calendar slot</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <button id="themeToggleBtn" class="theme-toggle-btn w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm text-sm" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-slate-700"></i>
+        </button>
+        <button id="rtlToggleBtn" class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl text-xs font-mono border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-brand-accent hover:text-slate-900 dark:hover:text-white transition-colors" title="Toggle RTL">
+          RTL
+        </button>
+        <a href="profile.html" class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
+          <img src="../assets/images/dashboard/rider-avatar.svg" alt="Profile" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-4 sm:p-6 lg:p-8 space-y-8 flex-grow max-w-5xl">
+
+      <!-- Intro Card -->
+      <div class="p-6 rounded-3xl bg-brand-primary border border-slate-800 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">Lab Protocol</span>
+          <h2 class="text-xl font-extrabold text-white mt-1">Reserve Your Precision Fit Bay</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-xl">
+            Please bring your current cycling shoes, preferred bib shorts, pedals, and cleanly washed bicycle to the studio bay.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-300 bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700">
+          <i class="bi bi-shield-check text-brand-accent text-base"></i>
+          <span>100% Fit Guarantee Included</span>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="appointmentBookingForm" class="bg-brand-primary border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8" novalidate>
+
+        <!-- Step 1: Service & Equipment -->
+        <div>
+          <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+            <span class="w-7 h-7 rounded-lg bg-lime-400/10 text-brand-accent border border-lime-400/30 flex items-center justify-center font-bold text-xs">1</span>
+            <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Service & Discipline</h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="bookingServiceSelect" class="block text-xs font-semibold text-slate-300 mb-2">
+                Fitting Service <span class="text-red-400">*</span>
+              </label>
+              <select 
+                id="bookingServiceSelect" 
+                name="service"
+                required 
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all truncate"
+              >
+                <option value="" selected>-- Choose Fitting Service --</option>
+                <option value="3d-motion-fit" data-price="349">3D Dynamic Motion Fit ($349)</option>
+                <option value="saddle-pressure-mapping" data-price="219">Saddle Pressure Mapping ($219)</option>
+                <option value="cleat-pedal-alignment" data-price="189">Cleat &amp; Pedal Alignment ($189)</option>
+                <option value="aero-triathlon-fit" data-price="429">Aero TT &amp; Triathlon Fit ($429)</option>
+                <option value="pedaling-efficiency-analysis" data-price="249">Pedaling Efficiency ($249)</option>
+                <option value="mountain-bike-ergonomic-fit" data-price="299">Mountain &amp; Enduro Fit ($299)</option>
+                <option value="cycling-biomechanics-screening" data-price="169">Mobility Screening ($169)</option>
+                <option value="followup-fit-consultation" data-price="99">Follow-up Consultation ($99)</option>
+                <option value="cda-aerodynamic-profiling" data-price="299">CdA Aero Profiling ($299)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="bookingBikeCategory" class="block text-xs font-semibold text-slate-300 mb-2">
+                Bike Discipline / Type <span class="text-red-400">*</span>
+              </label>
+              <select 
+                id="bookingBikeCategory" 
+                name="bikeCategory"
+                required
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all"
+              >
+                <option value="Road Bike">Road Bike (Aero / Endur)</option>
+                <option value="Triathlon / TT">Triathlon / TT Cockpit</option>
+                <option value="Gravel Bike">Gravel / Adventure</option>
+                <option value="Mountain Bike">Mountain Bike (XC / Trail)</option>
+                <option value="Indoor Trainer">Smart Bike / Trainer</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Specialist & Calendar Slot -->
+        <div>
+          <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+            <span class="w-7 h-7 rounded-lg bg-lime-400/10 text-brand-accent border border-lime-400/30 flex items-center justify-center font-bold text-xs">2</span>
+            <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Fitter Specialist & Date</h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="bookingSpecialistSelect" class="block text-xs font-semibold text-slate-300 mb-2">
+                Preferred Fitting Specialist
+              </label>
+              <select 
+                id="bookingSpecialistSelect" 
+                name="specialist"
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all truncate"
+              >
+                <option value="any" selected>First Available Specialist</option>
+                <option value="julian-vance">Julian Vance (Master Bike Fitter)</option>
+                <option value="elena-rostova">Dr. Elena Rostova (Biomechanist)</option>
+                <option value="marcus-lindqvist">Marcus Lindqvist (Aero Specialist)</option>
+                <option value="claire-moreau">Claire Moreau (Podiatry Specialist)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="bookingDateInput" class="block text-xs font-semibold text-slate-300 mb-2">
+                Preferred Session Date <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="date" 
+                id="bookingDateInput" 
+                name="date"
+                required
+                data-label="Preferred Session Date"
+                data-no-past="true"
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all"
+              >
+            </div>
+          </div>
+
+          <!-- Dynamic Slots Grid -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-3">
+              Available Time Slots <span class="text-red-400">*</span>
+            </label>
+            <div id="bookingSlotsContainer" class="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3">
+              <button type="button" class="slot-select-btn w-full p-2.5 sm:p-3 rounded-xl border text-[11px] sm:text-xs font-semibold transition-all bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-lime-400 flex items-center justify-center gap-1.5 whitespace-nowrap" data-slot="09:00 AM - 11:30 AM">
+                <i class="bi bi-clock"></i> <span>09:00 AM - 11:30 AM</span>
+              </button>
+              <button type="button" class="slot-select-btn w-full p-2.5 sm:p-3 rounded-xl border text-[11px] sm:text-xs font-semibold transition-all bg-lime-400 border-lime-400 text-brand-primary font-bold shadow-md ring-2 ring-lime-400/40 flex items-center justify-center gap-1.5 whitespace-nowrap" data-slot="10:00 AM - 12:30 PM">
+                <i class="bi bi-clock"></i> <span>10:00 AM - 12:30 PM</span>
+              </button>
+              <button type="button" class="slot-select-btn w-full p-2.5 sm:p-3 rounded-xl border text-[11px] sm:text-xs font-semibold transition-all bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-lime-400 flex items-center justify-center gap-1.5 whitespace-nowrap" data-slot="01:00 PM - 03:30 PM">
+                <i class="bi bi-clock"></i> <span>01:00 PM - 03:30 PM</span>
+              </button>
+              <button type="button" class="slot-select-btn w-full p-2.5 sm:p-3 rounded-xl border text-[11px] sm:text-xs font-semibold transition-all bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-lime-400 flex items-center justify-center gap-1.5 whitespace-nowrap" data-slot="02:00 PM - 04:30 PM">
+                <i class="bi bi-clock"></i> <span>02:00 PM - 04:30 PM</span>
+              </button>
+              <button type="button" class="slot-select-btn w-full p-2.5 sm:p-3 rounded-xl border text-[11px] sm:text-xs font-semibold transition-all bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-lime-400 flex items-center justify-center gap-1.5 whitespace-nowrap" data-slot="04:00 PM - 06:30 PM">
+                <i class="bi bi-clock"></i> <span>04:00 PM - 06:30 PM</span>
+              </button>
+            </div>
+            <input type="hidden" id="bookingSelectedSlotInput" name="timeSlot" value="10:00 AM - 12:30 PM" required data-label="Time Slot">
+          </div>
+        </div>
+
+        <!-- Step 3: Rider Contact & Notes -->
+        <div>
+          <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+            <span class="w-7 h-7 rounded-lg bg-lime-400/10 text-brand-accent border border-lime-400/30 flex items-center justify-center font-bold text-xs">3</span>
+            <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Rider Information & Goals</h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div>
+              <label for="bookingRiderName" class="block text-xs font-semibold text-slate-300 mb-2">
+                Rider Full Name <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="bookingRiderName" 
+                name="riderName"
+                required
+                data-label="Rider Full Name"
+                placeholder="Marcus Bennett"
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all"
+              >
+            </div>
+
+            <div>
+              <label for="bookingRiderEmail" class="block text-xs font-semibold text-slate-300 mb-2">
+                Email Address <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="bookingRiderEmail" 
+                name="riderEmail"
+                required
+                data-label="Email Address"
+                placeholder="rider@velometrix-demo.com"
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all"
+              >
+            </div>
+
+            <div>
+              <label for="bookingRiderPhone" class="block text-xs font-semibold text-slate-300 mb-2">
+                Phone Number <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="bookingRiderPhone" 
+                name="riderPhone"
+                required
+                data-label="Phone Number"
+                placeholder="+1 (555) 234-8971"
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all"
+              >
+            </div>
+          </div>
+
+          <div>
+            <label for="bookingNotes" class="block text-xs font-semibold text-slate-300 mb-2">
+              Current Discomfort, Goals, or Recent Injuries (Optional)
+            </label>
+            <textarea 
+              id="bookingNotes" 
+              name="notes"
+              rows="3" 
+              placeholder="e.g. Mild numbness on lateral left toes after 90 minutes; targeting 40km time trial power sustainability..."
+              class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-all"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit CTA -->
+        <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            <i class="bi bi-info-circle text-lime-600 dark:text-brand-accent shrink-0"></i>
+            <span>No upfront payment required for reservation. Saved to local rider session.</span>
+          </div>
+
+          <div class="booking-actions-group flex flex-col min-[440px]:flex-row items-stretch min-[440px]:items-center justify-end gap-2.5 sm:gap-3 w-full sm:w-auto">
+            <button type="reset" id="bookingResetBtn" class="h-11 sm:h-12 px-4 sm:px-6 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 transition-colors inline-flex items-center justify-center order-2 min-[440px]:order-1 w-full min-[440px]:w-auto whitespace-nowrap">
+              Reset
+            </button>
+            <button type="submit" id="confirmReservationBtn" class="btn-accent h-11 sm:h-12 px-4 sm:px-8 rounded-xl text-xs font-bold inline-flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20 transition-all order-1 min-[440px]:order-2 w-full min-[440px]:w-auto whitespace-nowrap">
+              <span>Confirm Lab Reservation</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </main>
+
+  </div>
+
+  <!-- Booking Confirmation Modal (Centered Popup) -->
+  <div id="bookingConfirmationModal" class="modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden" aria-hidden="true">
+    <div class="modal-content relative w-full max-w-lg my-auto p-6 sm:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-3xl shadow-2xl transition-all" role="dialog" aria-modal="true" aria-labelledby="bookingConfirmationTitle">
+      <button type="button" class="modal-close absolute top-4 right-4 w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close appointment confirmation">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <div class="w-16 h-16 rounded-2xl bg-lime-400/10 border border-lime-400/30 text-lime-500 dark:text-lime-400 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="bi bi-calendar2-check"></i>
+      </div>
+      <h3 id="bookingConfirmationTitle" class="text-xl font-extrabold text-slate-900 dark:text-white text-center font-['Plus_Jakarta_Sans']">Appointment Confirmed!</h3>
+      <p class="text-xs text-slate-600 dark:text-slate-300 text-center mt-1 mb-6">
+        Your bike fitting reservation has been registered in the studio schedule and saved to My Appointments.
+      </p>
+
+      <div class="modal-summary-box bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 space-y-2.5 text-xs mb-6">
+        <div class="flex justify-between items-center"><span class="text-slate-500 dark:text-slate-400">Reference:</span> <strong id="confAppointmentId" class="text-lime-600 dark:text-lime-400 font-mono font-bold text-accent">APT-2026-9999</strong></div>
+        <div class="flex justify-between items-center"><span class="text-slate-500 dark:text-slate-400">Rider:</span> <strong id="confRiderName" class="text-slate-900 dark:text-white">Marcus Bennett</strong></div>
+        <div class="flex justify-between items-center"><span class="text-slate-500 dark:text-slate-400">Service:</span> <strong id="confServiceName" class="text-slate-900 dark:text-white text-right">3D Dynamic Motion Capture Fit</strong></div>
+        <div class="flex justify-between items-center"><span class="text-slate-500 dark:text-slate-400">Bike Discipline:</span> <strong id="confBikeName" class="text-slate-700 dark:text-slate-300">Road Bike</strong></div>
+        <div class="flex justify-between items-center"><span class="text-slate-500 dark:text-slate-400">Session Date:</span> <strong id="confDateTime" class="text-slate-900 dark:text-white">2026-10-24 at 10:00 AM - 12:30 PM</strong></div>
+        <div class="flex justify-between items-center"><span class="text-slate-500 dark:text-slate-400">Specialist:</span> <strong id="confSpecialist" class="text-slate-700 dark:text-slate-200">Julian Vance</strong></div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="appointments.html" class="btn-accent flex-1 text-center py-3 rounded-xl font-bold text-xs shadow-md flex items-center justify-center gap-1.5">
+          <i class="bi bi-calendar-check"></i>
+          <span>View in My Appointments</span>
+        </a>
+        <button type="button" class="modal-close flex-1 py-3 rounded-xl font-semibold text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition-colors">
+          Book Another
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/mock-data.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/booking.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Rider Account | VELOMETRIX Studio</title>
+  <meta name="description" content="Register your VELOMETRIX rider account to track bike fit geometry, book sessions, and review biomechanics data.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A0D136',
+              bgLight: '#F7F9FC',
+              bgDark: '#101820',
+              cardDark: '#16222F',
+              muted: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-brand-bgLight dark:bg-brand-bgDark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between relative transition-colors duration-200">
+
+  <!-- Desktop Top Controls (Right Side) -->
+  <div class="hidden sm:flex absolute top-5 right-5 sm:top-6 sm:right-8 items-center gap-2.5 z-20">
+    <!-- RTL Toggle -->
+    <button class="rtl-toggle-btn px-2.5 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm" aria-label="Toggle layout direction" title="Toggle RTL">
+      <span class="rtl-status-text">RTL</span>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle-btn w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm" aria-label="Toggle theme" title="Toggle theme">
+      <i class="bi bi-sun-fill text-amber-500"></i>
+    </button>
+  </div>
+
+  <main class="flex-1 flex items-center justify-center p-4 py-12">
+    <div class="w-full max-w-lg">
+      
+      <!-- Registration Card -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-xl">
+        
+        <!-- Home 1 Logo & Title Inside Container -->
+        <div class="flex justify-center mb-6">
+          <a href="index.html" class="auth-brand inline-flex items-center gap-2 sm:gap-3 group shrink-0">
+            <div class="brand-icon-box w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl sm:text-2xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+              <i class="bi bi-radar"></i>
+            </div>
+            <div class="text-left">
+              <div class="brand-logo-title text-base sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+                VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+              </div>
+              <div class="brand-logo-sub text-[7.5px] sm:text-[10px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="text-center mb-8">
+          <span class="text-xs font-mono font-bold text-lime-600 dark:text-brand-accent uppercase tracking-widest block mb-1">RIDER MEMBERSHIP</span>
+          <h1 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">Create Your Rider Profile</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Archive your bike geometry, manage lab bookings, and compare fit assessments.</p>
+        </div>
+
+        <form id="riderRegisterForm" data-validate="true" class="space-y-4" novalidate>
+          
+          <div class="form-group">
+            <label for="regFullName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+              Full Name <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="regFullName" required data-label="Full Name" placeholder="e.g. Julian Vance" class="w-full px-4 py-3 rounded-xl text-xs bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-brand-accent focus:outline-none">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="regEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input type="email" id="regEmail" required data-type="email" data-label="Email" placeholder="name@domain.com" class="w-full px-4 py-3 rounded-xl text-xs bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-brand-accent focus:outline-none">
+            </div>
+
+            <div class="form-group">
+              <label for="regPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                Phone Number <span class="text-red-500">*</span>
+              </label>
+              <input type="tel" id="regPhone" required data-type="tel" data-label="Phone" placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-xl text-xs bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-brand-accent focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="regPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                Password <span class="text-red-500">*</span>
+              </label>
+              <input type="password" id="regPassword" required minlength="8" data-validate-strength="true" data-label="Password" placeholder="Min. 8 chars, 1 uppercase, 1 digit" class="w-full px-4 py-3 rounded-xl text-xs bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-brand-accent focus:outline-none">
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirmPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                Confirm Password <span class="text-red-500">*</span>
+              </label>
+              <input type="password" id="regConfirmPassword" required data-match-password="#regPassword" data-label="Confirm Password" placeholder="Repeat password" class="w-full px-4 py-3 rounded-xl text-xs bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-brand-accent focus:outline-none">
+            </div>
+          </div>
+
+          <div class="form-group flex items-start gap-2.5 pt-2">
+            <input type="checkbox" id="regTerms" required data-label="Terms of Service" class="mt-1 rounded accent-lime-400">
+            <label for="regTerms" class="text-xs text-slate-600 dark:text-slate-400">
+              I agree to the <a href="#" class="text-brand-accent hover:underline">Terms of Service</a> and <a href="#" class="text-brand-accent hover:underline">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <div class="pt-3">
+            <button type="submit" class="btn-accent w-full py-4 rounded-xl font-extrabold text-xs uppercase tracking-wider shadow-md">
+              Create Rider Account
+            </button>
+          </div>
+
+          <!-- Divider -->
+          <div class="relative my-5 text-center">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
+            </div>
+            <span class="relative px-3 text-xs bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-medium">or continue with</span>
+          </div>
+
+          <!-- Google and Apple Sign-In Buttons -->
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" class="social-login-btn flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all shadow-sm group">
+              <i class="bi bi-google text-red-500 text-sm group-hover:scale-110 transition-transform"></i>
+              <span>Google</span>
+            </button>
+            <button type="button" class="social-login-btn flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all shadow-sm group">
+              <i class="bi bi-apple text-slate-900 dark:text-white text-sm group-hover:scale-110 transition-transform"></i>
+              <span>Apple</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center mt-6 pt-6 border-t border-slate-100 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+          Already have an account? 
+          <a href="login.html" class="font-bold text-lime-600 dark:text-brand-accent hover:underline ml-1">Sign in here</a>
+        </div>
+      </div>
+
+      <!-- Mobile Controls (Under Container) -->
+      <div class="flex sm:hidden items-center justify-center gap-3 mt-6">
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn px-3 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm" aria-label="Toggle layout direction" title="Toggle RTL">
+          <span class="rtl-status-text">RTL</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun-fill text-amber-500"></i>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800">
+    &copy; 2026 VELOMETRIX Performance Studio. Frontend Demonstration.
+  </footer>
+
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById("riderRegisterForm")?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.target;
+      if (window.VelometrixValidation && !window.VelometrixValidation.validateForm(form)) {
+        return;
+      }
+      const fullName = document.getElementById("regFullName").value.trim();
+      const email = document.getElementById("regEmail").value.trim();
+      const phone = document.getElementById("regPhone").value.trim();
+
+      // Save into simulated profile
+      const currentProfile = Storage.get("profile", DEFAULT_RIDER_PROFILE);
+      Storage.set("profile", {
+        ...currentProfile,
+        fullName,
+        email,
+        phone
+      });
+      localStorage.setItem("velometrix_logged_in", "true");
+
+      VelometrixToast.show(`Account created for ${fullName}! Redirecting to Login...`, "success");
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1200);
+    });
+
+    // Handle Social Sign-Up (Google & Apple)
+    document.querySelectorAll(".social-login-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const provider = btn.querySelector("span")?.textContent.trim() || "OAuth";
+        VelometrixToast.show(`Connecting with ${provider}... Redirecting to Login...`, "info");
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1200);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+/* Responsive refinements shared by the public site and rider dashboard. */
+
+/* Keep intrinsically wide data readable without expanding the page. */
+.table-responsive-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+main .overflow-x-auto,
+article .overflow-x-auto {
+  max-width: 100%;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+canvas { max-width: 100%; }
+pre, code { overflow-wrap: break-word; }
+
+/* Dashboard dialogs must overlay the viewport and stay within it on phones. */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(2, 6, 23, 0.62);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal-overlay > .modal-content {
+  width: min(100%, 32rem);
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 1023px) {
+  .dashboard-sidebar-drawer,
+  #dashboardSidebar {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: min(18rem, calc(100vw - 2rem));
+    max-width: 100%;
+    z-index: 50;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html[dir="rtl"] .dashboard-sidebar-drawer,
+  html[dir="rtl"] #dashboardSidebar {
+    left: auto;
+    right: 0;
+  }
+
+  #dashboardSidebar.closed {
+    transform: translateX(-100%);
+  }
+
+  #dashboardSidebar:not(.closed) {
+    transform: translateX(0);
+  }
+
+  body.dashboard-sidebar-open #dashboardSidebar {
+    z-index: 70 !important;
+    visibility: visible;
+    transform: translateX(0) !important;
+  }
+
+  body.dashboard-sidebar-open #dashboardSidebarBackdrop {
+    display: block !important;
+    z-index: 60;
+  }
+
+  html[dir="rtl"] #dashboardSidebar.closed {
+    transform: translateX(100%);
+  }
+
+  html[dir="rtl"] #dashboardSidebar:not(.closed) {
+    transform: translateX(0);
+  }
+
+  .dashboard-main { padding-inline: 1.25rem; }
+
+  /* On mobile and tablet (< 1024px), hide Login and Book Fit CTA buttons from the top navbar header */
+  .site-header a[title="Login"],
+  .site-header a[title="Access Rider Portal"],
+  .site-header a.btn-accent {
+    display: none !important;
+  }
+
+  /* Ensure desktop nav is hidden and mobile menu toggle is visible */
+  .site-header nav {
+    display: none !important;
+  }
+
+  .site-header .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header nav {
+    display: flex !important;
+  }
+
+  .site-header .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-header nav {
+    gap: 0.875rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .site-header nav a,
+  .site-header nav button {
+    white-space: nowrap !important;
+  }
+
+  .site-header .brand-logo-title {
+    font-size: 1.05rem !important;
+  }
+
+  .site-header .brand-logo-sub {
+    font-size: 8px !important;
+  }
+
+  .site-header a.btn-accent {
+    padding: 0.45rem 0.75rem !important;
+    font-size: 0.6875rem !important;
+    white-space: nowrap !important;
+  }
+
+  .site-header a[title="Login"],
+  .site-header a[title="Access Rider Portal"] {
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.6875rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header { padding-inline: 0; }
+
+  .hero-headline,
+  h1.text-4xl,
+  h1.text-5xl,
+  h1.text-6xl {
+    font-size: clamp(1.65rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .section-title,
+  h2.text-3xl,
+  h2.text-4xl {
+    font-size: clamp(1.35rem, 5.2vw, 2rem);
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .dashboard-top-navbar { padding-inline: 1rem; }
+  .dashboard-main { padding-inline: 1rem; }
+  .before-after-container { height: min(360px, 75vw); }
+}
+
+@media (max-width: 479px) {
+  .trust-badge-strip { gap: 0.5rem; }
+  .trust-badge-strip .stat-val { font-size: 1rem; line-height: 1.2; }
+  .trust-badge-strip .stat-desc { font-size: 0.625rem; line-height: 1.25; }
+  .stat-card-number { font-size: clamp(1.5rem, 8vw, 2rem); }
+  .before-after-container { height: min(280px, 72vw); }
+
+  .dashboard-top-navbar .rtl-toggle-btn { padding-inline: 0.4rem; }
+  .dashboard-top-navbar .theme-toggle-btn { min-width: 2rem; min-height: 2rem; padding: 0.4rem; }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-sidebar-drawer,
+  #dashboardSidebar {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 16rem;
+    transform: none !important;
+  }
+
+  html[dir="rtl"] .dashboard-sidebar-drawer,
+  html[dir="rtl"] #dashboardSidebar {
+    left: auto;
+    right: 0;
+  }
+
+  html[dir="rtl"] .dashboard-body > .flex-grow {
+    padding-left: 0;
+    padding-right: 16rem;
+  }
+
+  .dashboard-body {
+    overflow-x: hidden;
+  }
+
+  .dashboard-body > .flex-grow {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .before-after-container { height: 480px; }
+}
+
+@media (min-width: 1920px) {
+  .container-ultra-wide {
+    max-width: 1720px;
+    margin-inline: auto;
+  }
+}
+
+/* Dashboard header controls follow the compact home page theme toggle. */
+.dashboard-top-navbar .theme-toggle-btn {
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  padding: 0;
+  border-radius: 0.5rem;
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #334155;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+html:not(.dark):not([data-theme="dark"]) .dashboard-top-navbar button.theme-toggle-btn,
+[data-theme="light"] .dashboard-top-navbar button.theme-toggle-btn {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-top-navbar .theme-toggle-btn:hover {
+  color: #4d7c0f;
+  border-color: #84cc16;
+}
+
+html:not(.dark):not([data-theme="dark"]) .dashboard-top-navbar button.theme-toggle-btn:hover,
+[data-theme="light"] .dashboard-top-navbar button.theme-toggle-btn:hover {
+  color: #4d7c0f !important;
+  border-color: #84cc16 !important;
+}
+
+html.dark .dashboard-top-navbar .theme-toggle-btn,
+[data-theme="dark"] .dashboard-top-navbar .theme-toggle-btn {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+html.dark .dashboard-top-navbar button.theme-toggle-btn,
+[data-theme="dark"] .dashboard-top-navbar button.theme-toggle-btn {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .dashboard-top-navbar .theme-toggle-btn:hover,
+[data-theme="dark"] .dashboard-top-navbar .theme-toggle-btn:hover {
+  color: #b7e64a;
+  border-color: #b7e64a;
+}
+
+html.dark .dashboard-top-navbar button.theme-toggle-btn:hover,
+[data-theme="dark"] .dashboard-top-navbar button.theme-toggle-btn:hover {
+  color: #b7e64a !important;
+  border-color: #b7e64a !important;
+}
+
+@media (max-width: 479px) {
+  .dashboard-top-navbar {
+    height: 4rem;
+    padding-inline: 0.5rem;
+  }
+
+  .dashboard-top-navbar > .flex:first-child {
+    gap: 0.375rem;
+  }
+
+  .dashboard-top-navbar .dashboard-brand {
+    gap: 0.375rem;
+  }
+
+  .dashboard-top-navbar .dashboard-brand .brand-icon-box {
+    width: 1.75rem;
+    height: 1.75rem;
+    min-width: 1.75rem;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-top-navbar .dashboard-brand .brand-logo-title {
+    font-size: 0.78rem;
+    line-height: 1.1;
+  }
+
+  .dashboard-top-navbar .dashboard-brand .brand-logo-sub {
+    display: none;
+  }
+
+  .dashboard-top-navbar > .flex:last-child {
+    gap: 0.25rem;
+  }
+
+  .dashboard-top-navbar #mobileDashboardSidebarToggle,
+  .dashboard-top-navbar .theme-toggle-btn,
+  .dashboard-top-navbar .rtl-toggle-btn {
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dashboard-body main > .grid.grid-cols-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 359px) {
+  .dashboard-top-navbar button[aria-label="Notifications"],
+  .dashboard-top-navbar > .flex:last-child > a[href="profile.html"] {
+    display: none;
+  }
+}
+
+/* Floating Action / Scroll-to-Top button alignment */
+.scroll-to-top {
+  right: 1.25rem !important;
+  left: auto !important;
+}
+html[dir="rtl"] .scroll-to-top {
+  right: auto !important;
+  left: 1.25rem !important;
+}
+
+/* Image container and comparison slider responsive rules */
+.before-after-container {
+  touch-action: pan-y;
+}
+.before-after-container .slider-handle {
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 639px) {
+  .before-after-container .slider-handle {
+    width: 32px;
+    height: 32px;
+  }
+}
+

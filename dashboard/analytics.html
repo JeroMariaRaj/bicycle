@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Analytics & Biomechanics | VELOMETRIX</title>
+  <meta name="description" content="Interactive cycling biomechanical telemetry: dynamic knee flexion tracking, cockpit reach progression, pedaling symmetry, and 6-axis posture radar.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A3D438',
+              lightBg: '#F7F9FC',
+              darkBg: '#101820',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              borderDark: '#243242'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Bootstrap Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="dashboard-body bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex min-h-screen selection:bg-brand-accent selection:text-brand-primary transition-colors duration-200">
+
+  <!-- Sidebar Overlay for Mobile -->
+  <div id="dashboardSidebarBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- Dashboard Sidebar Navigation -->
+  <aside id="dashboardSidebar" class="fixed top-0 bottom-0 left-0 w-64 bg-white dark:bg-brand-primary border-r border-slate-200 dark:border-slate-800 z-50 flex flex-col justify-between transition-transform duration-300 -translate-x-full closed lg:translate-x-0">
+    <div>
+      <!-- Brand Header -->
+      <div class="h-20 flex items-center justify-between px-5 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+        <a href="../index.html" class="dashboard-brand flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[9px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+        <button id="closeDashboardSidebarBtn" class="lg:hidden text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white p-1 ml-2" aria-label="Close sidebar">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="p-4 space-y-1.5 text-xs font-semibold">
+        <a href="index.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-speedometer2 text-base"></i>
+          <span>Overview</span>
+        </a>
+        <a href="book-appointment.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-plus text-base"></i>
+          <span>Book Appointment</span>
+        </a>
+        <a href="appointments.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-check text-base"></i>
+          <span>My Appointments</span>
+        </a>
+        <a href="fit-history.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-clock-history text-base"></i>
+          <span>Fit History & Comparison</span>
+        </a>
+        <a href="analytics.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl bg-brand-accent text-brand-primary font-bold shadow-md shadow-brand-accent/10">
+          <i class="bi bi-graph-up text-base"></i>
+          <span>Performance Analytics</span>
+        </a>
+        <a href="reports.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-file-earmark-medical text-base"></i>
+          <span>Measurement Reports</span>
+        </a>
+        <a href="bikes.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-bicycle text-base"></i>
+          <span>My Bikes</span>
+        </a>
+        <a href="profile.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-person-lines-fill text-base"></i>
+          <span>Rider Profile</span>
+        </a>
+        <a href="settings.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-gear text-base"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
+        <a href="../index.html" class="hover:text-brand-accent flex items-center gap-1">
+          <i class="bi bi-box-arrow-left"></i> Public Site
+        </a>
+        <a href="../login.html" class="text-red-400 hover:text-red-300 flex items-center gap-1 font-semibold">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-grow lg:pl-64 flex flex-col min-w-0">
+
+    <!-- Top Bar -->
+    <header class="dashboard-top-navbar sticky top-0 z-30 h-20 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 flex items-center justify-between transition-colors duration-200">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <button id="mobileDashboardSidebarToggle" class="lg:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" aria-label="Open sidebar">
+          <i class="bi bi-list text-2xl"></i>
+        </button>
+
+        <!-- Brand Logo on Mobile / Tablet (Visible when sidebar is off-canvas) -->
+        <a href="../index.html" class="dashboard-brand flex lg:hidden items-center gap-2 group shrink-0">
+          <div class="brand-icon-box w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-base shadow-sm group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-sm sm:text-base font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-0.5 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7px] sm:text-[8px] tracking-normal uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+
+        <!-- Desktop Page Heading (Hidden on mobile where brand logo shows, visible on desktop lg:) -->
+        <div class="hidden lg:block">
+          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans']">Biomechanical Analytics</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Dynamic angle trends, pedaling symmetry, and 6-axis posture radar</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <a href="book-appointment.html" class="hidden sm:inline-flex btn-accent px-4 py-2 rounded-xl text-xs font-bold items-center gap-1.5 shadow-md shadow-brand-accent/10">
+          <i class="bi bi-calendar-plus"></i>
+          <span>Schedule Re-Test</span>
+        </a>
+        <button id="themeToggleBtn" class="theme-toggle-btn w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm text-sm" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-slate-700"></i>
+        </button>
+        <button id="rtlToggleBtn" class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl text-xs font-mono border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-brand-accent hover:text-slate-900 dark:hover:text-white transition-colors" title="Toggle RTL">
+          RTL
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="p-4 sm:p-6 lg:p-8 space-y-6 flex-grow max-w-7xl">
+
+      <!-- Top Summary Metrics Banner -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 rounded-2xl bg-brand-primary border border-slate-800 shadow-sm">
+          <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Knee Flexion (BDC)</span>
+          <div class="text-2xl font-extrabold text-brand-accent font-mono mt-1">36.5°</div>
+          <span class="text-[11px] text-lime-400 font-semibold flex items-center gap-1 mt-0.5">
+            <i class="bi bi-check-circle"></i> Optimal (35°-38°)
+          </span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-brand-primary border border-slate-800 shadow-sm">
+          <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Hip Angle (TDC)</span>
+          <div class="text-2xl font-extrabold text-white font-mono mt-1">54.0°</div>
+          <span class="text-[11px] text-lime-400 font-semibold flex items-center gap-1 mt-0.5">
+            <i class="bi bi-check-circle"></i> No Impingement (>45°)
+          </span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-brand-primary border border-slate-800 shadow-sm">
+          <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Pedal Balance L/R</span>
+          <div class="text-2xl font-extrabold text-sky-400 font-mono mt-1">50.1 / 49.9%</div>
+          <span class="text-[11px] text-sky-400 font-semibold flex items-center gap-1 mt-0.5">
+            <i class="bi bi-check-circle"></i> Near Perfect Symmetry
+          </span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-brand-primary border border-slate-800 shadow-sm">
+          <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Posture Score</span>
+          <div class="text-2xl font-extrabold text-purple-400 font-mono mt-1">94 / 100</div>
+          <span class="text-[11px] text-purple-400 font-semibold flex items-center gap-1 mt-0.5">
+            <i class="bi bi-arrow-up"></i> +29 pts since Jan
+          </span>
+        </div>
+      </div>
+
+      <!-- Charts Row 1: Knee Flexion Target Band & Cockpit Geometry -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Chart 1: Knee Flexion vs Ideal Target Band -->
+        <div class="bg-brand-primary border border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Dynamic Knee Flexion & Target Band</h3>
+              <span class="badge-optimal text-[10px] font-bold px-2.5 py-1 rounded-lg tracking-wide shadow-sm">Continuous 3D Motion</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Target green dashed lines define the 35°–38° high-cadence power window.</p>
+          </div>
+          <div class="h-72 w-full relative">
+            <canvas id="analyticsKneeChart"></canvas>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex justify-between">
+            <span>Baseline: 42.0° (Overextended)</span>
+            <span class="text-brand-accent font-bold">Current: 36.5° (Calibrated)</span>
+          </div>
+        </div>
+
+        <!-- Chart 2: Cockpit Reach vs Saddle Height -->
+        <div class="bg-brand-primary border border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Saddle Height vs Cockpit Reach</h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-400/10 text-sky-400 border border-sky-400/20">Millimeter Geometry</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Cockpit reach shortened by 24mm to relieve thoracic and neck strain.</p>
+          </div>
+          <div class="h-72 w-full relative">
+            <canvas id="analyticsCockpitChart"></canvas>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex justify-between">
+            <span>Saddle: 742mm &rarr; 738mm</span>
+            <span class="text-sky-400 font-bold">Reach: 520mm &rarr; 496mm</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts Row 2: Pedaling Efficiency Symmetry & Biomechanical Radar -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Chart 3: Left vs Right Leg Balance -->
+        <div class="bg-brand-primary border border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Pedaling Torque Symmetry (L / R Balance)</h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 border border-amber-400/20">SpinScan Vectors</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Cleat rotation and varus wedges corrected initial 54/46 left-dominant bias.</p>
+          </div>
+          <div class="h-72 w-full relative">
+            <canvas id="analyticsPedalingChart"></canvas>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex justify-between">
+            <span>Jan: 54.0% Left / 46.0% Right</span>
+            <span class="text-brand-accent font-bold">Oct: 50.1% Left / 49.9% Right</span>
+          </div>
+        </div>
+
+        <!-- Chart 4: Biomechanical Radar -->
+        <div class="bg-brand-primary border border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans']">Biomechanical Fit Radar (Baseline vs Optimized)</h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-400/10 text-purple-400 border border-purple-400/20">6-Axis Posture Index</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Comprehensive score progression evaluating spine, pelvic, and pedal vectors.</p>
+          </div>
+          <div class="h-72 w-full relative">
+            <canvas id="analyticsRadarChart"></canvas>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex justify-between">
+            <span>Grey: Initial Fit (Avg 66.5)</span>
+            <span class="text-brand-accent font-bold">Lime: Optimized (Avg 92.7)</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../assets/js/mock-data.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

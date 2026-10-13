@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bikes Garage | VELOMETRIX</title>
+  <meta name="description" content="Manage your bicycle fleet, frame geometries, crank lengths, saddle models, and individual bike fit histories at VELOMETRIX.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#101D2C',
+              secondary: '#34465B',
+              accent: '#B7E64A',
+              accentHover: '#A3D438',
+              lightBg: '#F7F9FC',
+              darkBg: '#101820',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              borderDark: '#243242'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Bootstrap Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="dashboard-body bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex min-h-screen selection:bg-brand-accent selection:text-brand-primary transition-colors duration-200">
+
+  <!-- Sidebar Overlay for Mobile -->
+  <div id="dashboardSidebarBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- Dashboard Sidebar Navigation -->
+  <aside id="dashboardSidebar" class="fixed top-0 bottom-0 left-0 w-64 bg-white dark:bg-brand-primary border-r border-slate-200 dark:border-slate-800 z-50 flex flex-col justify-between transition-transform duration-300 -translate-x-full closed lg:translate-x-0">
+    <div>
+      <!-- Brand Header -->
+      <div class="h-20 flex items-center justify-between px-5 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+        <a href="../index.html" class="dashboard-brand flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="brand-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-xl shadow-sm dark:shadow-lg dark:shadow-brand-accent/10 group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7.5px] sm:text-[9px] tracking-normal sm:tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+        <button id="closeDashboardSidebarBtn" class="lg:hidden text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white p-1 ml-2" aria-label="Close sidebar">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="p-4 space-y-1.5 text-xs font-semibold">
+        <a href="index.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-speedometer2 text-base"></i>
+          <span>Overview</span>
+        </a>
+        <a href="book-appointment.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-plus text-base"></i>
+          <span>Book Appointment</span>
+        </a>
+        <a href="appointments.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-calendar-check text-base"></i>
+          <span>My Appointments</span>
+        </a>
+        <a href="fit-history.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-clock-history text-base"></i>
+          <span>Fit History & Comparison</span>
+        </a>
+        <a href="analytics.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-graph-up text-base"></i>
+          <span>Performance Analytics</span>
+        </a>
+        <a href="reports.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-file-earmark-medical text-base"></i>
+          <span>Measurement Reports</span>
+        </a>
+        <a href="bikes.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl bg-brand-accent text-brand-primary font-bold shadow-md shadow-brand-accent/10">
+          <i class="bi bi-bicycle text-base"></i>
+          <span>My Bikes</span>
+        </a>
+        <a href="profile.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-person-lines-fill text-base"></i>
+          <span>Rider Profile</span>
+        </a>
+        <a href="settings.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-300 hover:bg-slate-800/80 hover:text-brand-accent transition-colors">
+          <i class="bi bi-gear text-base"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
+        <a href="../index.html" class="hover:text-brand-accent flex items-center gap-1">
+          <i class="bi bi-box-arrow-left"></i> Public Site
+        </a>
+        <a href="../login.html" class="text-red-400 hover:text-red-300 flex items-center gap-1 font-semibold">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-grow lg:pl-64 flex flex-col min-w-0">
+
+    <!-- Top Bar -->
+    <header class="dashboard-top-navbar sticky top-0 z-30 h-20 bg-white/95 dark:bg-brand-primary/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 flex items-center justify-between transition-colors duration-200">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <button id="mobileDashboardSidebarToggle" class="lg:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" aria-label="Open sidebar">
+          <i class="bi bi-list text-2xl"></i>
+        </button>
+
+        <!-- Brand Logo on Mobile / Tablet (Visible when sidebar is off-canvas) -->
+        <a href="../index.html" class="dashboard-brand flex lg:hidden items-center gap-2 group shrink-0">
+          <div class="brand-icon-box w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-brand-accent/40 flex items-center justify-center text-slate-900 dark:text-brand-accent text-base shadow-sm group-hover:border-lime-500 dark:group-hover:border-brand-accent transition-all shrink-0">
+            <i class="bi bi-radar"></i>
+          </div>
+          <div>
+            <div class="brand-logo-title text-sm sm:text-base font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-0.5 whitespace-nowrap">
+              VELO<span class="text-lime-600 dark:text-brand-accent">METRIX</span>
+            </div>
+            <div class="brand-logo-sub text-[7px] sm:text-[8px] tracking-normal uppercase font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Fitting &amp; Performance Lab</div>
+          </div>
+        </a>
+
+        <!-- Desktop Page Heading (Hidden on mobile where brand logo shows, visible on desktop lg:) -->
+        <div class="hidden lg:block">
+          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans']">Bicycle Garage</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Manage your bikes, crank dimensions, saddles, and fit histories</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <button id="openAddBikeModalBtn" class="hidden sm:inline-flex btn-accent px-4 py-2 rounded-xl text-xs font-bold items-center gap-1.5 shadow-md shadow-brand-accent/10">
+          <i class="bi bi-plus-lg"></i>
+          <span>Add New Bike</span>
+        </button>
+        <button id="themeToggleBtn" class="theme-toggle-btn w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-lime-600 dark:hover:text-brand-accent transition-colors shadow-sm text-sm" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-slate-700"></i>
+        </button>
+        <button id="rtlToggleBtn" class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl text-xs font-mono border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-brand-accent hover:text-slate-900 dark:hover:text-white transition-colors" title="Toggle RTL">
+          RTL
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="bikesManagerApp" class="p-4 sm:p-6 lg:p-8 space-y-6 flex-grow max-w-7xl">
+
+      <!-- Intro Header -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-xl font-extrabold text-white font-['Plus_Jakarta_Sans']">Rider Equipment Fleet</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Maintain separate millimeter geometry coordinates for each of your race and training bikes.</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <i class="bi bi-shield-check text-brand-accent"></i>
+          <span>Independent fit history tracked per bicycle</span>
+        </div>
+      </div>
+
+      <!-- Bikes Grid (Rendered dynamically by dashboard.js) -->
+      <div id="bikesListGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Populated by dashboard.js -->
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Add Bike Modal -->
+  <div id="addBikeModal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-content max-w-xl p-6 sm:p-8 bg-white dark:bg-brand-primary text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-3xl shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="addBikeModalTitle">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-6">
+        <div>
+          <h3 id="addBikeModalTitle" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 font-['Plus_Jakarta_Sans']">
+            <i class="bi bi-bicycle text-lime-600 dark:text-brand-accent"></i> Add Bicycle to Garage
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Register frame specifications and components</p>
+        </div>
+        <button type="button" class="modal-close text-slate-400 hover:text-slate-800 dark:hover:text-white p-1 rounded-lg transition-colors" aria-label="Close add bike dialog"><i class="bi bi-x-lg"></i></button>
+      </div>
+
+      <form id="addBikeForm" class="space-y-4" novalidate>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="bikeNickname" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Bike Nickname <span class="text-red-500 dark:text-red-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="bikeNickname" 
+              required 
+              placeholder="e.g. Aero Road Weapon"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+
+          <div>
+            <label for="bikeType" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Category <span class="text-red-500 dark:text-red-400">*</span>
+            </label>
+            <select 
+              id="bikeType" 
+              required
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+              <option value="Road Aero">Road (Aero)</option>
+              <option value="Road Endurance">Road (Endurance)</option>
+              <option value="Triathlon / TT">Triathlon / Time Trial</option>
+              <option value="Gravel Race">Gravel Race</option>
+              <option value="Mountain Bike (XC)">Mountain Bike (XC)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label for="bikeBrand" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Brand / Manufacturer <span class="text-red-500 dark:text-red-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="bikeBrand" 
+              required 
+              placeholder="e.g. Specialized"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+
+          <div>
+            <label for="bikeModel" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Model Name <span class="text-red-500 dark:text-red-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="bikeModel" 
+              required 
+              placeholder="e.g. S-Works Tarmac SL8"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+
+          <div>
+            <label for="bikeYear" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Model Year
+            </label>
+            <input 
+              type="number" 
+              id="bikeYear" 
+              value="2026"
+              min="2010" 
+              max="2030"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label for="bikeFrameSize" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Frame Size <span class="text-red-500 dark:text-red-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="bikeFrameSize" 
+              required 
+              placeholder="e.g. 54cm / M"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+
+          <div>
+            <label for="bikeCrankLength" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Crank Length
+            </label>
+            <input 
+              type="text" 
+              id="bikeCrankLength" 
+              placeholder="e.g. 170 mm"
+              value="170 mm"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+
+          <div>
+            <label for="bikeSaddle" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Saddle Model
+            </label>
+            <input 
+              type="text" 
+              id="bikeSaddle" 
+              placeholder="e.g. Specialized Power Mirror 143"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="bikeNotes" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+            Components & Fit Notes (Optional)
+          </label>
+          <textarea 
+            id="bikeNotes" 
+            rows="2" 
+            placeholder="e.g. Integrated aero cockpit, 400mm bars, 100mm stem, ceramic speed bottom bracket..."
+            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs focus:border-lime-500 dark:focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-lime-500 dark:focus:ring-brand-accent transition-all"
+          ></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end gap-3">
+          <button type="button" class="modal-close px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 transition-colors">
+            Cancel
+          </button>
+          <button type="submit" class="btn-accent px-6 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+            <i class="bi bi-check-lg"></i>
+            <span>Save to Garage</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/mock-data.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+  <script>
+    // Open Add Bike Modal
+    const addBtn = document.getElementById("openAddBikeModalBtn");
+    if (addBtn) {
+      addBtn.addEventListener("click", () => {
+        VelometrixModal.open("addBikeModal");
+      });
+    }
+
+  </script>
+</body>
+</html>

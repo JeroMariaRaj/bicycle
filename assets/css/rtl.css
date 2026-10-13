@@ -1,0 +1,90 @@
+/* ==========================================================================
+   VELOMETRIX - Dedicated RTL (Right-to-Left) Stylesheet
+   Direction-Aware Overrides for Arabic / Hebrew & Multilingual Environments
+   ========================================================================== */
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Flipped direction arrows */
+html[dir="rtl"] .bi-arrow-right::before {
+  content: "\f12f"; /* bi-arrow-left */
+}
+
+html[dir="rtl"] .bi-arrow-left::before {
+  content: "\f138"; /* bi-arrow-right */
+}
+
+html[dir="rtl"] .bi-chevron-right::before {
+  content: "\f284"; /* bi-chevron-left */
+}
+
+html[dir="rtl"] .bi-chevron-left::before {
+  content: "\f285"; /* bi-chevron-right */
+}
+
+/* Logical alignment */
+html[dir="rtl"] .text-left {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left !important;
+}
+
+/* Dropdown positions */
+html[dir="rtl"] .nav-dropdown {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* Procedure timeline flipped line */
+html[dir="rtl"] .relative.pl-12 {
+  padding-left: 0 !important;
+  padding-right: 3rem !important;
+  border-left: none !important;
+  border-right: 1px solid #334155 !important;
+}
+
+html[dir="rtl"] .relative.pl-12 .absolute.-left-4 {
+  left: auto !important;
+  right: -1rem !important;
+}
+
+/* Dashboard Sidebar RTL mirroring */
+html[dir="rtl"] .dashboard-sidebar {
+  border-right: none !important;
+  border-left: 1px solid var(--color-border);
+}
+
+html.dark[dir="rtl"] .dashboard-sidebar,
+[data-theme="dark"][dir="rtl"] .dashboard-sidebar {
+  border-left-color: #243547 !important;
+}
+
+/* Toast container positioning */
+html[dir="rtl"] #velometrix-toast-container {
+  right: auto !important;
+  left: 1.25rem !important;
+}
+
+/* Form input margins */
+html[dir="rtl"] .mr-1,
+html[dir="rtl"] .mr-2,
+html[dir="rtl"] .mr-3 {
+  margin-right: 0 !important;
+}
+html[dir="rtl"] .mr-1 { margin-left: 0.25rem !important; }
+html[dir="rtl"] .mr-2 { margin-left: 0.5rem !important; }
+html[dir="rtl"] .mr-3 { margin-left: 0.75rem !important; }
+
+html[dir="rtl"] .ml-1,
+html[dir="rtl"] .ml-2,
+html[dir="rtl"] .ml-3 {
+  margin-left: 0 !important;
+}
+html[dir="rtl"] .ml-1 { margin-right: 0.25rem !important; }
+html[dir="rtl"] .ml-2 { margin-right: 0.5rem !important; }
+html[dir="rtl"] .ml-3 { margin-right: 0.75rem !important; }
