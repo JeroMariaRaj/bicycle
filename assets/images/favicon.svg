@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Squircle Base -->
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)" stroke="#1E293B" stroke-width="1"/>
+  
+  <!-- Outer Radar Waves -->
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#B7E64A" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="2 3"/>
+  <circle cx="32" cy="32" r="18" fill="none" stroke="#B7E64A" stroke-width="1.2" stroke-opacity="0.5"/>
+  <circle cx="32" cy="32" r="11" fill="none" stroke="#B7E64A" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- Radar Sweep -->
+  <path d="M 32 32 L 48 18 A 24 24 0 0 1 56 32 Z" fill="#B7E64A" fill-opacity="0.15"/>
+
+  <!-- Stylized Performance Bicycle Icon -->
+  <g filter="url(#glow)" stroke="#B7E64A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Wheels -->
+    <circle cx="21" cy="40" r="8"/>
+    <circle cx="43" cy="40" r="8"/>
+    
+    <!-- Frame -->
+    <polyline points="21,40 30,40 28,26 40,26 43,40"/>
+    <line x1="30" y1="40" x2="40" y2="26"/>
+    <line x1="21" y1="40" x2="28" y2="26"/>
+    
+    <!-- Seatpost & Saddle -->
+    <line x1="28" y1="26" x2="27" y2="22"/>
+    <line x1="24" y1="22" x2="30" y2="22" stroke-width="2.6"/>
+    
+    <!-- Handlebar & Stem -->
+    <line x1="40" y1="26" x2="41" y2="21"/>
+    <path d="M 41 21 Q 44 21 44 24" stroke-width="2.2"/>
+  </g>
+
+  <!-- Telemetry Sensor Dots -->
+  <circle cx="32" cy="14" r="1.5" fill="#B7E64A"/>
+  <circle cx="50" cy="40" r="1" fill="#B7E64A"/>
+  <circle cx="14" cy="32" r="1" fill="#B7E64A"/>
+</svg>
