@@ -1285,3 +1285,42 @@ html.dark #bookingConfirmationModal .modal-summary-box,
   word-break: normal !important;
 }
 
+/* Settings Page - Demo Reset Card High Contrast */
+html:not(.dark):not([data-theme="dark"]) .demo-reset-card,
+[data-theme="light"] .demo-reset-card {
+  background-color: #FEF2F2 !important;
+  border-color: #FECACA !important;
+}
+
+html:not(.dark):not([data-theme="dark"]) .demo-reset-card .text-red-900,
+[data-theme="light"] .demo-reset-card .text-red-900 {
+  color: #991B1B !important;
+}
+
+html:not(.dark):not([data-theme="dark"]) .demo-reset-card p,
+[data-theme="light"] .demo-reset-card p {
+  color: #7F1D1D !important;
+}
+
+#resetDemoDataBtn {
+  background-color: #DC2626 !important;
+  color: #FFFFFF !important;
+  border-color: #B91C1C !important;
+}
+
+#resetDemoDataBtn:hover {
+  background-color: #B91C1C !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .demo-reset-card,
+[data-theme="dark"] .demo-reset-card {
+  background-color: rgba(69, 10, 10, 0.45) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+html.dark .demo-reset-card p,
+[data-theme="dark"] .demo-reset-card p {
+  color: #CBD5E1 !important;
+}
+

@@ -174,33 +174,33 @@
     <main class="p-4 sm:p-6 lg:p-8 space-y-8 flex-grow max-w-4xl">
 
       <!-- Section 1: Measurement Unit Preferences -->
-      <div class="p-6 sm:p-8 rounded-3xl bg-brand-primary border border-slate-800 shadow-xl space-y-6">
+      <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-brand-primary border border-slate-200 dark:border-slate-800 shadow-xl space-y-6">
         <div>
-          <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
-            <i class="bi bi-rulers text-brand-accent"></i> Units & Geometry System
+          <h3 class="text-base font-bold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+            <i class="bi bi-rulers text-lime-600 dark:text-brand-accent"></i> Units &amp; Geometry System
           </h3>
-          <p class="text-xs text-slate-400 mt-1">Configure default display formats for cockpit reach, saddle heights, and body weight.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Configure default display formats for cockpit reach, saddle heights, and body weight.</p>
         </div>
 
         <div class="space-y-4 pt-2">
-          <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+          <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
             <div>
-              <div class="text-xs font-bold text-white">Coordinate System</div>
-              <div class="text-[11px] text-slate-400">Millimetric ISO standard (Recommended for precision bike fitting)</div>
+              <div class="text-xs font-bold text-slate-900 dark:text-white">Coordinate System</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">Millimetric ISO standard (Recommended for precision bike fitting)</div>
             </div>
-            <select class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white">
+            <select class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs text-slate-800 dark:text-white">
               <option value="metric" selected>Metric (mm / cm)</option>
               <option value="imperial">Imperial (Inches)</option>
             </select>
           </div>
 
-          <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+          <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
             <div>
-              <div class="text-xs font-bold text-white">Power & Cadence Scaling</div>
-              <div class="text-[11px] text-slate-400">Standard watt metrics and revolutions per minute</div>
+              <div class="text-xs font-bold text-slate-900 dark:text-white">Power &amp; Cadence Scaling</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">Standard watt metrics and revolutions per minute</div>
             </div>
-            <select class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white">
-              <option value="watts" selected>Watts & RPM</option>
+            <select class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs text-slate-800 dark:text-white">
+              <option value="watts" selected>Watts &amp; RPM</option>
               <option value="percent">Percentage of FTP (% FTP)</option>
             </select>
           </div>
@@ -208,65 +208,68 @@
       </div>
 
       <!-- Section 2: Notifications & Reminders -->
-      <div class="p-6 sm:p-8 rounded-3xl bg-brand-primary border border-slate-800 shadow-xl space-y-6">
+      <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-brand-primary border border-slate-200 dark:border-slate-800 shadow-xl space-y-6">
         <div>
-          <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
-            <i class="bi bi-bell text-brand-accent"></i> Communication & Fit Alerts
+          <h3 class="text-base font-bold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+            <i class="bi bi-bell text-lime-600 dark:text-brand-accent"></i> Communication &amp; Fit Alerts
           </h3>
-          <p class="text-xs text-slate-400 mt-1">Manage notifications regarding upcoming calibrations and follow-up checks.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Manage notifications regarding upcoming calibrations and follow-up checks.</p>
         </div>
 
         <div class="space-y-3 pt-2 text-xs">
-          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800 cursor-pointer">
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-lime-500/40 transition-colors">
             <div>
-              <div class="font-bold text-white">Appointment Reminders</div>
-              <div class="text-[11px] text-slate-400">Receive 48h and 24h prior notification via SMS and email.</div>
+              <div class="font-bold text-slate-900 dark:text-white">Appointment Reminders</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">Receive 48h and 24h prior notification via SMS and email.</div>
             </div>
-            <input type="checkbox" checked class="w-4 h-4 rounded accent-brand-accent">
+            <input type="checkbox" checked class="w-4 h-4 rounded accent-lime-500 dark:accent-brand-accent">
           </label>
 
-          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800 cursor-pointer">
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-lime-500/40 transition-colors">
             <div>
-              <div class="font-bold text-white">Follow-Up Adaptation Prompt</div>
-              <div class="text-[11px] text-slate-400">Automated check-in at 21 days post-fitting to evaluate neuromuscular adaptation.</div>
+              <div class="font-bold text-slate-900 dark:text-white">Follow-Up Adaptation Prompt</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">Automated check-in at 21 days post-fitting to evaluate neuromuscular adaptation.</div>
             </div>
-            <input type="checkbox" checked class="w-4 h-4 rounded accent-brand-accent">
+            <input type="checkbox" checked class="w-4 h-4 rounded accent-lime-500 dark:accent-brand-accent">
           </label>
 
-          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/60 border border-slate-800 cursor-pointer">
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-lime-500/40 transition-colors">
             <div>
-              <div class="font-bold text-white">Scientific Research Dispatch</div>
-              <div class="text-[11px] text-slate-400">Bi-weekly digest from the VELOMETRIX biomechanics research lab.</div>
+              <div class="font-bold text-slate-900 dark:text-white">Scientific Research Dispatch</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">Bi-weekly digest from the VELOMETRIX biomechanics research lab.</div>
             </div>
-            <input type="checkbox" class="w-4 h-4 rounded accent-brand-accent">
+            <input type="checkbox" class="w-4 h-4 rounded accent-lime-500 dark:accent-brand-accent">
           </label>
         </div>
       </div>
 
       <!-- Section 3: Data Management & Factory Reset -->
-      <div class="p-6 sm:p-8 rounded-3xl bg-brand-primary border border-red-500/20 shadow-xl space-y-6">
+      <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-brand-primary border border-slate-200 dark:border-red-500/20 shadow-xl space-y-6">
         <div>
-          <h3 class="text-base font-bold text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
-            <i class="bi bi-database text-amber-400"></i> Demo Data Control
+          <h3 class="text-base font-bold text-slate-900 dark:text-white font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+            <i class="bi bi-database text-amber-500 dark:text-amber-400"></i> Demo Data Control
           </h3>
-          <p class="text-xs text-slate-400 mt-1">
-            This frontend template stores appointments, bikes, and profile edits in your browser's <code class="text-brand-accent">localStorage</code>.
+          <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+            This frontend template stores appointments, bikes, and profile edits in your browser's <code class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-lime-700 dark:text-brand-accent font-mono font-semibold">localStorage</code>.
           </p>
         </div>
 
-        <div class="p-4 rounded-2xl bg-red-950/20 border border-red-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="demo-reset-card p-4 sm:p-5 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all">
           <div>
-            <div class="text-xs font-bold text-red-200">Reset Demo Data to Factory Defaults</div>
-            <p class="text-[11px] text-slate-400 mt-0.5">
+            <div class="text-sm font-bold text-red-900 dark:text-red-200 flex items-center gap-2">
+              <i class="bi bi-exclamation-triangle-fill text-red-600 dark:text-red-400 text-sm"></i>
+              <span>Reset Demo Data to Factory Defaults</span>
+            </div>
+            <p class="text-xs text-red-800/80 dark:text-slate-300 mt-1 leading-relaxed">
               Replaces any edited or created appointments and bikes with the clean master sample dataset.
             </p>
           </div>
           <button 
             type="button" 
             id="resetDemoDataBtn"
-            class="px-4 py-2.5 rounded-xl text-xs font-bold bg-red-500/20 hover:bg-red-500/30 text-red-300 border border-red-500/40 transition-colors flex items-center gap-2 flex-shrink-0"
+            class="px-5 py-2.5 rounded-xl text-xs font-bold bg-red-600 hover:bg-red-700 text-white border border-red-700 shadow-md shadow-red-600/20 transition-all flex items-center gap-2 flex-shrink-0 cursor-pointer active:scale-95 whitespace-nowrap"
           >
-            <i class="bi bi-arrow-counterclockwise"></i>
+            <i class="bi bi-arrow-counterclockwise text-sm"></i>
             <span>Reset Demo Data</span>
           </button>
         </div>
